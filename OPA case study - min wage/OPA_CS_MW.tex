@@ -54,6 +54,7 @@
 \newcommand{\nit}[1]{\textrm{\textit{{\color{red}[#1]}}}}
 \newcommand{\highlight}[1]{\colorbox{yellow}{$\displaystyle #1$}}
 \newcommand{\highlightw}[1]{\colorbox{white}{$\displaystyle #1$}}
+\newcommand{\highlightr}[1]{\colorbox{red}{$\displaystyle #1$}}
 \newcommand{\tabitem}{~~\llap{\textbullet}~~}
 
 
@@ -171,183 +172,80 @@ basicstyle=\scriptsize\tt,
  
 \section{Motivation}
 
-\begin{frame}{Motivation}
-\begin{itemize}
-\item Manski
-\item Report Wars
-\item Hoces de la Guardia, Grant \& Miguel
-\end{itemize}
-\end{frame}
-
-
-\begin{frame}{Ideal Connection Between Evidence and Policy}
-
-
-
-\tikzstyle{agent} = [diamond, draw, node distance= 7em, minimum height=5em, minimum width=5em]
-\tikzstyle{line} = [draw, -stealth]
-
-\tikzstyle{line_enph} = [draw, red, ultra thick]
-\tikzstyle{inp} = [draw, circle, text centered, minimum height=2em, text width=2em, node distance= 10em]
-\tikzstyle{outp} = [draw, circle, text centered, minimum height=2em, text width=2em, node distance= 10em]
-\tikzstyle{block1} = [draw, circle,  text width=5em, text centered, minimum height=7em, node distance= 5em]
-\tikzstyle{block2} = [draw, circle,  text width=7em, text centered, minimum height=2em, node distance= 5em]
-\tikzstyle{block3} = [draw, rounded rectangle,  text width=5em, text centered, minimum height=2em, node distance= 5em]
-
-
-\begin{figure}[h!]\centering
-\vspace{-2.0em}
-\begin{tikzpicture}[thick,scale=0.55, every node/.style={scale=0.55}]
-
-%% The oddly shaped truth
-\node[regular polygon, regular polygon sides=3,
-              draw, fill=white,
-              inner sep=.1em,
-              shape border rotate=70](tru){Truth};
-
-
-%%%%%Researcher 1 and Inputs: depends on R_1%%%%%%%
-\node [block1, right = 2em of tru](R_1){Research\linebreak $(R)$};
-\node [block1,inner sep=0em, right = 2em of R_1](PA_1){Policy \linebreak Analysis: ($PA$) \linebreak  Gains  \& \linebreak losses};
-\node [block1, above right = 0em and 8em of R_1](PM_1){Policy\linebreak Maker 1};
-\node [block1, below right = 0em and 8em of R_1](PM_2){Policy\linebreak Maker 2};
-
-\node [block3, right = 2em of PM_1](PC_1){Support};
-\node [block3, right = 2em of PM_2](PC_2){Oppose};
-
-
-%%%%% Draw edges col 2%%%%%%%%%%%%%%%%%
-%Research  to PA
-\draw [line](tru) -- (R_1);
-\draw [line](R_1) -- (PA_1);
-%PA to PM
-\draw [line](PA_1) -- (PM_1);
-\draw [line](PA_1) -- (PM_2);
-%PM to PC
-\draw [line](PM_1) -- (PC_1);
-\draw [line](PM_2) -- (PC_2);
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-\draw[decoration={brace}, decorate] (7,3.4) -- node[above=6pt](lab4){{\Large Observed by citizens} }(16,3.4);
-
-
-
-
-\end{tikzpicture}
-\vspace{-.8em}
-\end{figure}
-\end{frame}
-
-
-
-
-
-
-\begin{frame}[shrink=30]{Current Connection Between Evidence and Policy}
-
-
-
-\tikzstyle{agent} = [diamond, draw, node distance= 7em, minimum height=5em, minimum width=5em]
-\tikzstyle{line} = [draw, -stealth]
-
-\tikzstyle{line_d} = [draw, dashed, -stealth]
-\tikzstyle{inp} = [draw, circle, text centered, minimum height=2em, text width=2em, node distance= 10em]
-\tikzstyle{outp} = [draw, circle, text centered, minimum height=2em, text width=2em, node distance= 10em]
-\tikzstyle{block1} = [draw, circle,  text width=3em, text centered, minimum height=2em, node distance= 5em]
-\tikzstyle{block2} = [draw, circle,  text width=4em, text centered, minimum height=2em, node distance= 5em]
-\tikzstyle{block3} = [draw, rounded rectangle,  text width=5em, text centered, minimum height=2em, node distance= 5em]
-
-\begin{figure}[h!]
+\begin{frame}{Motivation 1}
+\begin{table}[ht]
 \centering
-\hspace*{0.2\linewidth}
-\begin{tikzpicture}[thick,scale=0.2, every node/.style={scale=0.8}]
+\begin{tabular}[t]{|l|c|c|}
+\hline
+& Empirical  & Policy \\
+& Research & Analysis \\
 
-%% The oddly shaped truth
-\node[regular polygon, regular polygon sides=3,
-              draw, fill=white,
-              inner sep=.1em,
-              shape border rotate=70](tru){Truth};
+\hline
+Problems & Reproducibility  &  Credibility \\
+				 &  Crisis & Crisis \\
+\hline
+Solutions &  \textit{Open Science}&    \textit{Open Policy Analysis } \\
+ & Principles, Guidelines,  &  {\white Principles, Guidelines,}\\
+ & Applications &   {\white Applications}\\
 
-
-%%%%%Researcher 1 and Inputs: depends on R_1%%%%%%%
-\node [block1, right = 5em of tru](R_2){$R_2$};
-\node [block1, above = 8em of R_2](R_1){$R_1$} node [left = -0.1em of R_1, text width = 5em]{Large Treatment Effect};
-\node [block1, below = 8em of R_2](R_3){$R_3$} node [left = -0.1em of R_3, text width = 5em]{Small Treatment Effect};
-
-\draw[decoration={brace,mirror}, decorate] (13,-33) -- node[below=6pt, text width = 4.8em](lab1){Researchers Degrees of 
-Freedom}(18,-33);
-
-\draw[decoration={brace,mirror}, decorate] (29,-33) -- node[below=6pt, text width = 5em](lab2){Policy Analyst Degrees of 
-Freedom}(34,-33);
-
-\draw[decoration={brace}, decorate] (31,33) -- node[below=2pt]{Observed by citizens}(70,33);
-
-%\node [agent](Researcher_1){$R_1$} node [left = 0.6em of Researcher_1, text width = 8em]{Large Treatment Effect};
-
-\node [block1, right = 5em of R_1](PA_12){$PA_{1,2}$};
-\node [block1, above = .5em of PA_12](PA_11){$PA_{1,1}$} node [right = -0.1em of PA_11, text width = 5em]{Large gains only};
-\node [block1, below = .5em of PA_12](PA_13){$PA_{1,3}$};
-
-\node [block1, right = 5em of R_2](PA_22){$PA_{22,}$};
-\node [block1, above = .5em of PA_22](PA_21){$PA_{2,1}$};
-\node [block1, below = .5em of PA_22](PA_23){$PA_{2,3}$};
-
-\node [block1, right = 5em of R_3](PA_32){$PA_{3,2}$};
-\node [block1, above = .5em of PA_32](PA_31){$PA_{3,1}$};
-\node [block1, below = .5em of PA_32](PA_33){$PA_{3,3}$} node [right = -0.1em of PA_33, text width = 5em]{Large losses only};
-
-
-\node [block2, above right = 3em and 15em of R_2](PM_1){Policy\linebreak Maker 1};
-\node [block2, below right = 3em and 15em of R_2](PM_2){Policy\linebreak Maker 2};
-
-\node [block3, right = 3em of PM_1](PC_1){Support};
-\node [block3, right = 3em of PM_2](PC_2){Oppose};
-
-
-%%%%% Draw edges col 2%%%%%%%%%%%%%%%%%
-%Truth to research
-\draw [line](tru) -- (R_1);
-\draw [line_d](tru) -- (R_2);
-\draw [line_d](tru) -- (R_3);
-
-
-%Research  to PA
-\draw [line_d](R_1) -- (PA_13);
-\draw [line_d](R_1) -- (PA_11);
-\draw [line](R_1) -- (PA_12);
-
-\draw [line_d](R_2) -- (PA_23);
-\draw [line_d](R_2) -- (PA_21);
-\draw [line_d](R_2) -- (PA_22);
-
-\draw [line_d](R_3) -- (PA_33);
-\draw [line_d](R_3) -- (PA_31);
-\draw [line_d](R_3) -- (PA_32);
-
-
-
-%PA to PM
-\draw [line](PA_11) -- (PM_1);
-\draw [line](PA_33) -- (PM_2);
-%PM to PC
-\draw [line](PM_1) -- (PC_1);
-\draw [line](PM_2) -- (PC_2);
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
-\end{tikzpicture}
-\end{figure}
-%\end{comment}
+\hline
+\end{tabular}
+\end{table}%
 \end{frame}
 
+\begin{frame}[noframenumbering]{Motivation 1}
+\begin{table}[ht]
+\centering
+\begin{tabular}[t]{|l|c|c|}
+\hline
+& Empirical  & Policy \\
+& Research & Analysis \\
 
-\begin{frame}{CBO Is Under Attack}
+\hline
+Problems & Reproducibility  &  Credibility \\
+				 &  Crisis & Crisis \\
+\hline
+Solutions &  \textit{Open Science} &    \textit{Open Policy Analysis } \\
+ & Principles, Guidelines,  &  Principles {\white , Guidelines,}\\
+ & Applications &   {\white Applications}\\
+
+\hline
+\end{tabular}
+\end{table}%
+\end{frame}
+
+\begin{frame}[noframenumbering]{Motivation 1}
+\begin{table}[ht]
+\centering
+\begin{tabular}[t]{|l|c|c|}
+\hline
+& Empirical  & Policy \\
+& Research & Analysis \\
+
+\hline
+Problems & Reproducibility  &  Credibility \\
+				 &  Crisis & Crisis \\
+\hline
+Solutions &  \textit{Open Science}&    \textit{Open Policy Analysis} \\
+ & Principles, Guidelines,  &   Principles, \textbf{Guidelines,}\\
+ & Applications &   \textbf{Applications}\\
+
+\hline
+\end{tabular}
+\end{table}%
+\end{frame}
+
+\begin{frame}{Motivation 2: An Academic Concern in 2013}
+\begin{exampleblock}{}
+  {\large ``I worry that someday sooner or later the existing social contract to take CBO scores at face value will break down. Conventional Certitudes that lack foundation cannot last indefinitely.''
+}
+  \vskip3mm
+  \raggedleft{\small--- Charles Manski} \footnotesize{ \linebreak  Public Policy in an Uncertain World, 2013} 
+  	  
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}{Motivation 2: A Reality In 2017}
    \begin{tikzpicture}[remember picture,overlay]
        \node[at=(current page.center), xshift = 2em, yshift = -1.4em] {
          \includegraphics[width=.87\paperwidth]{../Images/CBO_under_attack.PNG}
@@ -697,7 +595,7 @@ Congressional Budget Office (2014)
 \draw [line, opacity=.3][xshift=1em](D_1.east) -- ([yshift=-10 em]I_1.west);
 
 \draw [line, opacity=.3][xshift=1em](Lit.east) -- ([yshift=7 em]I_j.west);
-\draw [line, opacity=.3][xshift=1em](Lit.east) -- ([yshift=-5 em]I_j.west);
+\draw [line, opacity=.3][xshift=1em](Lit.east) -- ([yshift=-3 em]I_j.west);
 
 \draw [line, opacity=.3][xshift=1em](OR.east) -- ([yshift=3 em]I_last.west);
 \draw [line, opacity=.3][xshift=1em](OR.east) -- ([yshift=5 em]I_last.west);
@@ -828,7 +726,7 @@ $\rho>0$ represent positive valuation of progressive redistribution. $\rho<0$ re
 \end{frame}
 
 
-\begin{frame}{\hspace*{-2em} Normative Valuations and Redistribiutional Preferences  \linebreak \vspace*{-1em} Toy Example ({ $\omega_{WG} = \omega_{WL} = \omega_{BL} = 1$}) }
+\begin{frame}{ Redistribiutional Preferences  \linebreak \vspace*{-1em} Toy Example ({ $\omega_{WG} = \omega_{WL} = \omega_{BL} = 1$}) }
 
 \vspace{-.2em}
 \begin{figure}[h!]
@@ -843,7 +741,7 @@ $\rho>0$ represent positive valuation of progressive redistribution. $\rho<0$ re
 \begin{frame}{Sensitivity Analysis For Multiple Parameters}
 \vspace*{-1.2em}
 \begin{table}
-\caption{$\%\Delta W$ for a $\%\Delta$ in inputs. Two sample policy makers: dislikes ($W(-0.1) = -\$5.3bn$) and likes ($W(0.1) = \$10.1bn$) redistribution}
+\caption{$\%\Delta W$ for a $\%\Delta$ in inputs. Two sample policy makers.}
 \scalebox{0.7}{
 \begin{tabular}{ll|c|c|c|c}
 \hline
@@ -876,7 +774,7 @@ Source & Input                & $10\% \Delta^{+}$ 	& $10\% \Delta^{-}$ & $10\% \
 \begin{frame}{Welfare Effects: Elasticity of Labor Demand $W(\eta( F_{ext}, F_{adj},\eta_{lit}))$ }
 \end{frame}
 
-\begin{frame}[noframenumbering]{Welfare Effects: Elasticity of Labor Demand $W(\eta(\highlight{F_{ext}}, \highlightw{F_{adj}},\highlightw{\eta_{lit}}))$ }
+\begin{frame}[noframenumbering]{Welfare Effects: Elasticity of Labor Demand $W(\eta( F_{ext}, F_{adj}, \highlightr{\eta_{lit}}))$ }
 \begin{figure}[h!]
 \centering
 \hspace{-1em}
@@ -884,7 +782,7 @@ Source & Input                & $10\% \Delta^{+}$ 	& $10\% \Delta^{-}$ & $10\% \
 \end{figure}	
 \end{frame}
 
-\begin{frame}[noframenumbering]{Welfare Effects: Elasticity of Labor Demand $W(\eta( \highlightw{F_{ext}}, \highlight{F_{adj}},\highlightw{\eta_{lit}} ))$ }
+\begin{frame}[noframenumbering]{Welfare Effects: Elasticity of Labor Demand $W(\eta(F_{ext},  \highlightr{F_{adj}},\eta_{lit}))$}
 \begin{figure}[h!]
 \centering
 \hspace{-1em}
@@ -892,7 +790,7 @@ Source & Input                & $10\% \Delta^{+}$ 	& $10\% \Delta^{-}$ & $10\% \
 \end{figure}	
 \end{frame}
 
-\begin{frame}[noframenumbering]{Welfare Effects: Elasticity of Labor Demand $W(\eta( \highlightw{F_{ext}}, \highlightw{F_{adj}},\highlight{\eta_{lit}}))$ }
+\begin{frame}[noframenumbering]{Welfare Effects: Elasticity of Labor Demand  $W(\eta( \highlightr{F_{ext}}, F_{adj},\eta_{lit}))$ }
 \begin{figure}[h!]
 \centering
 \hspace{-1em}
@@ -921,8 +819,7 @@ Let's assume this becomes the new status quo.
 \item Costs of producing the next report on effects of min wage will be very small. 
 \item Every additional effort will imply improvements on the ``state of the art'' report (e. g. $dBL$; $\eta(MW), \alpha_{1}(MW)$)
 \item Learning about one parameter (QALYs, DWL) will update estimates \textit{across} reports.  
-\item Much easier to have a substantive and normative policy debate (pilot example:\texttt{\href{https://fhoces.shinyapps.io/example_min_wage/}{Shiny App!}})
-
+\item Much easier to have a substantive and normative policy debate. Pilot example:{\blue\texttt{\href{https://fhoces.shinyapps.io/example_min_wage/}{ \underline{Shiny App!}}}}.
 } 
 %\onslide<2>{
 %\item Two type of contributions ($\sim$software development):
@@ -948,10 +845,17 @@ Let's assume this becomes the new status quo.
 \end{itemize}
 \end{frame}
 
+\begin{frame}{Limitations}
+Application 
+
+Guidelines
+\end{frame}
+
+
 \begin{frame}{Next Steps}
 
 \begin{itemize}
-\item Publish a motivation/concept-note paper why and how do we need reproducible and transparent policy analysis
+\item Publish a motivation paper on why do we need open policy analysis
 \item{\textbf{Find next case study, now with buy-in from a policy agency}}
 \begin{itemize}
 \item \textbf{Cost Benefit Analysis}
@@ -1368,6 +1272,58 @@ w' \quad \quad o/w
 \hspace{-5em} \includegraphics[scale = 0.28]{../Images/Screen_Shot6}
 \hyperlink{demo}{\beamerbutton{}}
 \end{figure}	
+\end{frame}
+
+
+
+\begin{frame}[label=full_model]{Clear connection between sources and inputs}
+\centering
+\resizebox{25em}{11em}{%
+\begin{tabular}{P{1em}P{16em}|P{25em}}
+\hline
+\multicolumn{2}{c|}{Source} & \multicolumn{1}{c}{Input} \\ \hline
+\multicolumn{2}{l|}{\textit{Data}} &  \\
+ & CPS ORG 2013 \linebreak (CEPR version) & Number of salary workers in 2013 $(\widehat{ N^{g}_{final} } \quad g\in\{teen, adult\} )$; Fraction of workers below the new minimum wage $(P_{\hat{w} \leq MW^{1}|g})$; Average wage variation for those below the new min wage $(\overline{\%\Delta w^{g}})$; Non-compliance rate $(\alpha_{1}^{g})$\\
+  &  &  \\ 
+ & CPS ASEC 2012 \linebreak (CEPR version) & Wages and Non-Wage Income distribution $(dF_{w}, dF_{nw})$; Household size ($N_{h}$); Hours/weeks worked $(\hat{w} , \hat{h})$\\
+ & State level Min. Wage (DOL) & Trends in state min. wage $(MW^{s}_{t})$ \\
+ & 10-year economic forecast (CBO) & Predicted worker growth by 2016 (in 2013) $(\hat{g_{N}})$; Wage growth in by 2016 $(\hat{g_{w}})$; Non-wage growth by 2016 $(\hat{g_{nw}})$ \\
+ &  &  \\ \hline
+\multicolumn{2}{l|}{\textit{Research}} &  \\
+  & Elasticity of labor demand for teenagers &  $\eta_{teen}^{lit} = -0.1$ \\
+ & Ripple effects & From $R_{lb} = \$8.7$ to $R_{ub} = \$11.5$ with a ``ripple'' intensity of $R_{I} = 50\%$  \\
+ &  &  \\ \hline
+\multicolumn{2}{l|}{\textit{Guess Work}} &  \\
+ & Extrapolation factor from teenagers to adults  &  $F_{ex} = 1/3$ \\
+ & Net benefits &  $\hat{NB} = \$2 billion$  \\
+  & Adjustment to account for effective wage variation and affected population &  $F_{adj} = 4.5$  \\
+ & Aggregate consumption effects on employment &  $\hat{OF} = 40,000 \, new \, jobs$\\
+ & Distribution of balance loses & $dBL = (1\%, 29\%, 70\%)$  if income $\in [0, 1PL, 6PL, + )$  \\
+ & Fract. of wage loses used to pay wage gains &  $F_{subs} = 1$ \\
+ & Job killing process: fraction of jobs & Cut wages in half for twice the number of jobs destroyed \\ \hline
+\end{tabular}}
+
+\end{frame}
+
+
+\begin{frame}{Fully specified model}
+\centering
+\resizebox{25em}{9em}{%
+\begin{tabular}{P{19em}|P{9em}}
+\hline
+\multicolumn{1}{c|}{Model} & {\centering Policy estimate \linebreak (per quintile) } \\ \hline
+Predicted household income with and without min wage increase. \linebreak \textbf{Depends on}: $\widehat{ N^{g}_{final} },  P_{\hat{w} \leq MW^{1}|g}, \overline{\%\Delta w^{g}},\alpha_{1}^{g},$ $dF_{w}, dF_{nw}, N_{h}, \hat{w}, \hat{h}, MW^{s}_{t}, \hat{g_{N}}, \hat{g_{w}},\hat{g_{nw}},$ $\eta_{teen}^{lit}, R_{lb}, R_{ub}, R_{I}, F_{ex}, F_{adj}, \hat{OF}$  &  Average gain in per capita income due to net wage increase. \linebreak ($\overline{WG_{q}}$) \\
+\hline
+%\small{\hyperlink{wage_gain}{\beamerbutton{}}}
+
+Predicted household income with and without min wage increase. \linebreak \textbf{Depends on}: $\widehat{ N^{g}_{final} },  P_{\hat{w} \leq MW^{1}|g}, \overline{\%\Delta w^{g}},\alpha_{1}^{g},$ $dF_{w}, dF_{nw}, N_{h}, \hat{w}, \hat{h}, MW^{s}_{t}, \hat{g_{N}}, \hat{g_{w}},\hat{g_{nw}},$ $\eta_{teen}^{lit}, F_{ex}, F_{adj}, \hat{OF}$  &  Average loss in per capita income due to net wage decrease. \linebreak ($\overline{WL_{q}}$) \\
+\hline
+%\small{\hyperlink{wage_loss}{\beamerbutton{}}}
+Distribution of balance loses \linebreak \textbf{Depends on}: $\overline{WG_{q}}(\cdot), \overline{WL_{q}}(\cdot), \hat{NB},$ $F_{subs}, dBL$  &  Average loss in per capita income to balance wage gains. \linebreak ($\overline{BL_{q}}$) \\
+\hline\hline
+{ \raggedright {\small \hyperlink{equations}{Equations}; \hyperlink{map_cbo}{Back} } }
+\end{tabular}}
+
 \end{frame}
 
 
