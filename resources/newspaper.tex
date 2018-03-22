@@ -1,0 +1,79 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{microtype}
+
+\usepackage{newspaper}
+
+\date{March 29, 2020}
+\currentvolume{3}
+\currentissue{14}
+
+%% [LianTze] The newspaper package also provides 
+%% these commands to set various metadata:
+
+%% The banner headline on the first page
+%%   (The colon after s: is to get a more
+%%   modern majuscule s in this font instead of 
+%%   the medieval tall s. For anyone interested 
+%%   in the history: 
+%%  http://medievalwriting.50megs.com/scripts/letters/historys.htm)
+\SetPaperName{The Wonk Times:}
+
+%% The name used in the running header after
+%% the first page
+\SetHeaderName{Good Times}
+
+%% and also...
+\SetPaperLocation{Washington DC}
+\SetPaperSlogan{``Democracy Thrives In Sunlight''}
+\SetPaperPrice{THREE Dollars}
+
+
+% [LianTze] times (the package not the font) is rather outdated now; use newtx (see later)
+% \usepackage{times}
+\usepackage{graphicx}
+\usepackage{multicol}
+
+\usepackage{picinpar}
+%uasage of picinpar:
+%\begin{window}[1,l,\includegraphics{},caption]xxxxx\end{window}
+
+
+%% [LianTze] Contains some modifications
+\usepackage{newspaper-mod}
+%%... so now you can redefine the headline and byline style if you want to.
+%% These can be issued just before any
+%% byline or headline in the paper, to
+%% individually style each article
+%%
+% \renewcommand{\headlinestyle}{\itshape\Large\lsstyle}
+% \renewcommand{\bylinestyle}{\bfseries\Large\raggedright}
+
+
+%%%%%%%%%  Front matter   %%%%%%%%%%
+
+\usepackage{lipsum}
+
+\begin{document}
+\maketitle
+
+\begin{multicols}{3}
+
+\headline{{\Huge CBO Publishes Open Report on Minimum Wage}\\ {\Large Results Will Be Published Separately in Two Weeks}}
+
+\lipsum[1]
+
+\closearticle
+
+
+\headline{Bipartisan Support for CBO Methodology}
+
+\lipsum[2-4]
+
+\closearticle
+
+\end{multicols}
+
+\end{document}

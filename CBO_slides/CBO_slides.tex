@@ -99,14 +99,16 @@ basicstyle=\scriptsize\tt,
   rounded corners=2pt]  {\Large\insertbuttontext};}
 
 
-\title[OPA - Minimum Wage ] % (optional, use only with long paper titles)
-{Open Policy Analysis: A Case Study of the Minimum Wage Policy Estimate}
+\title[Open Policy Analysis ] % (optional, use only with long paper titles)
+{Why We Need Open Policy Analysis}
 
 \subtitle
 {}
 
 \author[] % (optional, use only with lots of authors)
-{Fernando~Hoces de la Guardia\inst{1}}
+{Fernando~Hoces de la Guardia\inst{1}\\
+Sean~Grant\inst{2}\\
+Edward Miguel\inst{1}}
 % - Give the names in the same order as the appear in the paper.
 % - Use the \inst{?} command only if the authors have different
 %   affiliation.
@@ -116,13 +118,15 @@ basicstyle=\scriptsize\tt,
   \inst{1}%
   UC Berkeley:\\
   Berkeley Initiative for Transparency in the Social Sciences\\
+  \inst{2}%
+  RAND\\
 }
 % - Use the \inst command only if there are several affiliations.
 % - Keep it simple, no one is interested in your street address.
 
 \date[] % (optional, should be abbreviation of conference name)
-{Congressional Budget Office, March 2018\\
-{\small Slides at} \url{http://www.github.com/fhoces/CBO2018}}
+{Congressional Budget Office\\
+March 29th, 2018}
 % - Either use conference name or its abbreviation.
 % - Not really informative to the audience, more for people (including
 %   yourself) who are reading the slides online
@@ -161,18 +165,581 @@ basicstyle=\scriptsize\tt,
 
 \begin{document}
 
+\part{Paper 1}
 \begin{frame}
   \titlepage
 \end{frame}
 
-\begin{frame}{Outline}
-  \tableofcontents
-  % You might wish to add the option [pausesections]
-\end{frame}
+
+
+
+% Structuring a talk is a difficult task and the following structure
+% may not be suitable. Here are some rules that apply for this
+% solution: 
+
+% - Exactly two or three sections (other than the summary).
+% - At *most* three subsections per section.
+% - Talk about 30s to 2min per frame. So there should be between about
+%   15 and 30 frames, all told.
+
+% - A conference audience is likely to know very little of what you
+%   are going to talk about. So *simplify*!
+% - In a 20min talk, getting the main ideas across is hard
+%   enough. Leave out details, even if it means being less precise than
+%   you think necessary.
+% - If you omit details that are vital to the proof/implementation,
+%   just say so once. Everybody will be happy with that.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  
+\section[Evidence Based]{Policy Analysis And The Evidence-Based Policy Movement}
+
+\begin{frame}{Policy Analysis And The Evidence-Based Policy Movement}
+Evidence-Based Movement is Growing. 
+\begin{itemize}
+\item ``The golden age of evidence-based policy'' (Haskins 2017).
+%\begin{itemize}
+\item Credible causal evidence (Angrist \& Pischke, 2010)
+\item Transparency and reproducibility of research (Miguel et al. 2014).
+%\end{itemize} 
+\item Commission on Evidence-Based Policymaking (CEBP, 2017)
+\end{itemize}
+\pause
+Policy Analysis is fundamental link. 
+\begin{itemize}
+\item As many definitions as textbooks (Dunn, 2015; Weimer \& Vining, 2017; Williams, 1971)
+\item Common denominator: client-oriented empirical analysis meant to inform a specific policy debate
+\item Aspires at scientific rigor. (Wildavsky 1979),
+\end{itemize}
+\end{frame} 
+
+
+\begin{frame}{One Ideal Evidence-Based Policy Link}
+
+\tikzstyle{agent} = [diamond, draw, node distance= 7em, minimum height=5em, minimum width=5em]
+\tikzstyle{line} = [draw, -stealth]
+
+\tikzstyle{line_enph} = [draw, red, ultra thick]
+\tikzstyle{inp} = [draw, circle, text centered, minimum height=2em, text width=2em, node distance= 10em]
+\tikzstyle{outp} = [draw, circle, text centered, minimum height=2em, text width=2em, node distance= 10em]
+\tikzstyle{block1} = [draw, circle,  text width=5em, text centered, minimum height=7em, node distance= 5em]
+\tikzstyle{block2} = [draw, circle,  text width=7em, text centered, minimum height=2em, node distance= 5em]
+\tikzstyle{block3} = [draw, rounded rectangle,  text width=5em, text centered, minimum height=2em, node distance= 5em]
+
+
+\begin{figure}[h!]\centering
+\vspace{-2.0em}
+\begin{tikzpicture}[thick,scale=0.55, every node/.style={scale=0.55}]
+
+%% The oddly shaped truth
+\node[regular polygon, regular polygon sides=3,
+              draw, fill=white,
+              inner sep=.1em,
+              shape border rotate=70](tru){Truth};
+
+
+%%%%%Researcher 1 and Inputs: depends on R_1%%%%%%%
+\node [block1, right = 2em of tru](R_1){Research\linebreak $(R)$};
+\node [block1,inner sep=0em, right = 2em of R_1](PA_1){Policy \linebreak Analysis: ($PA$) \linebreak  Gains  \& \linebreak losses};
+\node [block1, above right = 0em and 8em of R_1](PM_1){Policy\linebreak Maker 1};
+\node [block1, below right = 0em and 8em of R_1](PM_2){Policy\linebreak Maker 2};
+
+\node [block3, right = 2em of PM_1](PC_1){Support};
+\node [block3, right = 2em of PM_2](PC_2){Oppose};
+
+
+%%%%% Draw edges col 2%%%%%%%%%%%%%%%%%
+%Research  to PA
+\draw [line](tru) -- (R_1);
+\draw [line](R_1) -- (PA_1);
+%PA to PM
+\draw [line](PA_1) -- (PM_1);
+\draw [line](PA_1) -- (PM_2);
+%PM to PC
+\draw [line](PM_1) -- (PC_1);
+\draw [line](PM_2) -- (PC_2);
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\draw[decoration={brace}, decorate] (7,3.4) -- node[above=6pt](lab4){{\Large Observed by citizens} }(16,3.4);
+
+
+
+
+\end{tikzpicture}
+\vspace{-.8em}
+\end{figure}
+\end{frame}
+
+
+\section[Crisis in Research]{Reproducibility Crisis In Empirical Research}
+
+\begin{frame}{Reproducibility Crisis In Empirical Research}
+
+\begin{itemize}
+%\item  Researchers believe in good science but don't practices it (Anderson, Martinson, \& De Vries 2007).  
+%\pause
+%\item ``Most published research is false'' Ioannidis (2005). 
+\item Large magnitude of Publication Bias (Franco et al 2014).  
+\item Evidence of extensive p-hacking across social science disciplines (Gerber et al 2008, Brodeur et al 2016).
+\item  Replication rates are low (Collaboration et al, 2015 40-60\%, Camerer et al, 2016 60\%). Computational reproducibility is also low (Stodden et al 2016, Chang and Li 2015 45\%, Gertler et al 2018 14\%).
+\end{itemize}
+
+\end{frame} 
+
+
+\section[Open Science]{The Open Science Movement}
+
+\begin{frame}{The Open Science Movement}
+
+\begin{itemize}
+\item Definition of principles of Open Science/Research Transparency (Miguel et al 2014)
+\item Development of guidelines to operationalize principles of Open Science (Nosek et al 2015)
+\item Journals and funders: Registries (AEA), Journals (Science + 5k other journals), Funders (NIH, NSF and multiple donors)
+\end{itemize}
+
+\end{frame} 
+
+\section[Crisis in PA]{Credibility Crisis Of Policy Analysis}
+
+\begin{frame}{Credibility Crisis Of Policy Analysis}
+\begin{itemize}
+\item Incredible Certitudes  (Manski, 2013) 
+\item Report wars (Wesselink et al, 2013) 
+\item  Researcher degrees of freedom (Simmons, Nelson, and Simonsohn 2011,Wicherts et al., 2016).
+\end{itemize}
+\end{frame} 
+
+\begin{frame}[shrink=30]{How This Affects The Evidence Based Policy Link?}
+\pause
+
+\tikzstyle{agent} = [diamond, draw, node distance= 7em, minimum height=5em, minimum width=5em]
+\tikzstyle{line} = [draw, -stealth]
+
+\tikzstyle{line_d} = [draw, dashed, -stealth]
+\tikzstyle{inp} = [draw, circle, text centered, minimum height=2em, text width=2em, node distance= 10em]
+\tikzstyle{outp} = [draw, circle, text centered, minimum height=2em, text width=2em, node distance= 10em]
+\tikzstyle{block1} = [draw, circle,  text width=3em, text centered, minimum height=2em, node distance= 5em]
+\tikzstyle{block2} = [draw, circle,  text width=4em, text centered, minimum height=2em, node distance= 5em]
+\tikzstyle{block3} = [draw, rounded rectangle,  text width=5em, text centered, minimum height=2em, node distance= 5em]
+
+\begin{figure}[h!]
+\centering
+\hspace*{0.2\linewidth}
+\begin{tikzpicture}[thick,scale=0.2, every node/.style={scale=0.8}]
+
+%% The oddly shaped truth
+\node[regular polygon, regular polygon sides=3,
+              draw, fill=white,
+              inner sep=.1em,
+              shape border rotate=70](tru){Truth};
+
+
+%%%%%Researcher 1 and Inputs: depends on R_1%%%%%%%
+\node [block1, right = 5em of tru](R_2){$R_2$};
+\node [block1, above = 8em of R_2](R_1){$R_1$} node [left = -0.1em of R_1, text width = 5em]{Large Treatment Effect};
+\node [block1, below = 8em of R_2](R_3){$R_3$} node [left = -0.1em of R_3, text width = 5em]{Small Treatment Effect};
+
+\draw[decoration={brace,mirror}, decorate] (13,-33) -- node[below=6pt, text width = 4.8em](lab1){Researchers Degrees of 
+Freedom}(18,-33);
+
+\draw[decoration={brace,mirror}, decorate] (29,-33) -- node[below=6pt, text width = 5em](lab2){Policy Analyst Degrees of 
+Freedom}(34,-33);
+
+\draw[decoration={brace}, decorate] (31,33) -- node[below=2pt]{Observed by citizens}(70,33);
+
+%\node [agent](Researcher_1){$R_1$} node [left = 0.6em of Researcher_1, text width = 8em]{Large Treatment Effect};
+
+\node [block1, right = 5em of R_1](PA_12){$PA_{1,2}$};
+\node [block1, above = .5em of PA_12](PA_11){$PA_{1,1}$} node [right = -0.1em of PA_11, text width = 5em]{Large gains only};
+\node [block1, below = .5em of PA_12](PA_13){$PA_{1,3}$};
+
+\node [block1, right = 5em of R_2](PA_22){$PA_{22,}$};
+\node [block1, above = .5em of PA_22](PA_21){$PA_{2,1}$};
+\node [block1, below = .5em of PA_22](PA_23){$PA_{2,3}$};
+
+\node [block1, right = 5em of R_3](PA_32){$PA_{3,2}$};
+\node [block1, above = .5em of PA_32](PA_31){$PA_{3,1}$};
+\node [block1, below = .5em of PA_32](PA_33){$PA_{3,3}$} node [right = -0.1em of PA_33, text width = 5em]{Large losses only};
+
+
+\node [block2, above right = 3em and 15em of R_2](PM_1){Policy\linebreak Maker 1};
+\node [block2, below right = 3em and 15em of R_2](PM_2){Policy\linebreak Maker 2};
+
+\node [block3, right = 3em of PM_1](PC_1){Support};
+\node [block3, right = 3em of PM_2](PC_2){Oppose};
+
+
+%%%%% Draw edges col 2%%%%%%%%%%%%%%%%%
+%Truth to research
+\draw [line](tru) -- (R_1);
+\draw [line_d](tru) -- (R_2);
+\draw [line_d](tru) -- (R_3);
+
+
+%Research  to PA
+\draw [line_d](R_1) -- (PA_13);
+\draw [line_d](R_1) -- (PA_11);
+\draw [line](R_1) -- (PA_12);
+
+\draw [line_d](R_2) -- (PA_23);
+\draw [line_d](R_2) -- (PA_21);
+\draw [line_d](R_2) -- (PA_22);
+
+\draw [line_d](R_3) -- (PA_33);
+\draw [line_d](R_3) -- (PA_31);
+\draw [line_d](R_3) -- (PA_32);
+
+
+
+%PA to PM
+\draw [line](PA_11) -- (PM_1);
+\draw [line](PA_33) -- (PM_2);
+%PM to PC
+\draw [line](PM_1) -- (PC_1);
+\draw [line](PM_2) -- (PC_2);
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+\end{tikzpicture}
+\end{figure}
+%\end{comment}
+\end{frame}
+
+\begin{frame}{Relevance}
+Main consequences of policy analysis that lacks openness:
+\begin{enumerate}
+\item Cherry picking evidence.
+\item Challenging to automate and Improve systematically recurring reports.
+\item Difficulty understanding how research informs policy analysis.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Cherry Picking Evidence}
+\pause
+\begin{exampleblock}{}
+  {\large ``When I was director of the CBO, I was very frustrated when we would write a policy report [saying] a certain policy would have these two advantages and these two disadvantages, and the advocates would quote only the part about the advantages, and the opponents would quote only the part about the disadvantages. That encourages the view that there are simple answers. There aren't generally simple answers. There are trade-offs.''
+%I would strayed from Josh Angrist.. what is the right word... [DC says] straight jacket (in a friendly tone). That is a %good one. Although if I were to have a hierarchy of what is the strongest, I would probably start wearing Josh's straight %jacket
+}
+  \vskip3mm
+  \raggedleft{\small--- Douglas Elmendorf (Director of CBO, 2009-2015)} \footnotesize{ \linebreak  Harvard Magazine, 2016} 
+  	  
+\end{exampleblock}
+\end{frame} 
+
+%6mins
+
+
+
+%\begin{frame}{Difficulty Understanding how Research Informs Policy Analysis}
+%\begin{itemize}
+%\item What happens when new research emerges?
+%\item Where a the largest unknowns in the policy analysis?
+%\item Where is the marginal piece of research most informative for this analysis?
+%\end{itemize}
+%\end{frame} 
+
+\section[Open PA]{Proposed Principles for Open Policy Analysis}
+
+\begin{frame}{Open Policy Analysis}
+\begin{table}[ht]
+\centering
+\begin{tabular}[t]{|l|c|c|}
+\hline
+& Empirical  & Policy \\
+& Research & Analysis \\
+
+\hline
+Problems & Reproducibility  &  Credibility \\
+				 &  Crisis & Crisis \\
+\hline
+Solutions &  \textit{Open Science }&    {\white \textit{Open Policy Analysis } }\\
+ & Principles, Guidelines,  &   {\white Principles, Guidelines,}\\
+ & Applications &   {\white Applications}\\
+
+\hline
+\end{tabular}
+\end{table}%
+\end{frame}
+
+\begin{frame}[noframenumbering]{Open Policy Analysis}
+\begin{table}[ht]
+\centering
+\begin{tabular}[t]{|l|c|c|}
+\hline
+& Empirical  & Policy \\
+& Research & Analysis \\
+
+\hline
+Problems & Reproducibility  &  Credibility \\
+				 &  Crisis & Crisis \\
+\hline
+Solutions &  \textit{Open Science }&    \textit{Open Policy Analysis } \\
+ & Principles, Guidelines,  &   Principles\\
+ & Applications &   \\
+
+\hline
+\end{tabular}
+\end{table}%
+\end{frame}
+
+\begin{frame}{Principles for Open Policy Analysis}
+Proposed principles:
+\begin{enumerate}
+\item Computational Reproducibility
+\item Analytic Transparency
+\item Output Transparency 
+\end{enumerate}
+\end{frame} 
+
+\begin{frame}[shrink=25, label = pa_comp]{The Process of Policy Analysis}
+
+\tikzstyle{estimate} = [diamond, draw, node distance= 7em,text width = 5em, minimum height=5em, minimum width=5em, align = center]
+\tikzstyle{line} = [draw, -stealth]
+\tikzstyle{line_enph} = [draw, red, ultra thick]
+\tikzstyle{inp} = [draw, rectangle, text centered, minimum height=3em, text width=2em, node distance= 2em]
+\tikzstyle{source} = [draw, rectangle, text centered, minimum height=8em, text width=5em, node distance= 10em]
+\tikzstyle{model} = [draw, rectangle, text centered, minimum height=8em, text width=15em, node distance= 10em]
+%\tikzstyle{outp} = [draw, ellipse, text centered, minimum height=2mm, text width=2em, node distance= 10em]
+%\tikzstyle{block} = [draw, rectangle,  text width=8em, text centered, minimum height=55mm, node distance= 5em]
+
+
+%\begin{adjustbox}{max totalsize={1\textwidth}{.8\textheight},center}
+
+\begin{figure}[h!]\centering 
+\hspace*{-2.5em}
+\begin{tikzpicture}[thick,scale=0.6, every node/.style={scale=0.6}]
+\setbeamercovered{invisible}
+
+%%%%%Nodes: Sources%%%%%%%
+\node [source](D_1){$Data$};
+\node [source, below = 1em of D_1](Lit){$Research$};
+\node [source, below = 1em of Lit](OR){\textit{Guess work}};
+
+
+\draw[decoration={brace,mirror}, decorate] (-1.2,-10) -- node[below=6pt] {$Sources$}(1.1,-10);
+
+\draw[decoration={brace,mirror}, decorate] (4.8,-11.3) -- node[below=6pt] {$Inputs$}(6.2,-11.3);
+
+
+%node[below = 1em ](OR) -- node[below = 6em]{asd}(OR)
+
+
+%\onslide<2-5>\node [source, color=red](Lit){$Research$};
+
+%%%%%Nodes: Inputs%%%%%%%
+\node [inp, above right = 1em and 6em of  D_1 ](I_1){$I_1$};
+\node [inp, below = 1em of I_1](I_2){$I_2$};
+\node [inp, below = 8em of I_2](I_j){$I_j$};
+\node [inp, below right = 1em and 6em of OR ](I_last){$I_J$};
+
+
+
+
+\path (I_2) -- node[auto=false, rotate=90, anchor=north, outer sep=-0.5em]{\ldots} (I_j);
+\path (I_j) -- node[auto=false, rotate=90, anchor=north, outer sep=-0.5em]{\ldots} (I_last);
+
+%%%%%Paths connecting Sources with Inputs%%%%%%%
+\draw [line](D_1.east) -- (I_1.west);
+\draw [line](D_1.east) -- (I_2.west);
+\draw [line, opacity=1, anchor=center](Lit.east) -- (I_j.west);
+\draw [line, opacity=1, anchor=center](OR.east) -- (I_last.west);
+
+
+\draw [line, opacity=.3][xshift=1em](D_1.east) -- ([yshift=-8 em]I_1.west);
+\draw [line, opacity=.3][xshift=1em](D_1.east) -- ([yshift=-10 em]I_1.west);
+
+\draw [line, opacity=.3][xshift=1em](Lit.east) -- ([yshift=7 em]I_j.west);
+\draw [line, opacity=.3][xshift=1em](Lit.east) -- ([yshift=-5 em]I_j.west);
+
+\draw [line, opacity=.3][xshift=1em](OR.east) -- ([yshift=3 em]I_last.west);
+\draw [line, opacity=.3][xshift=1em](OR.east) -- ([yshift=5 em]I_last.west);
+
+
+%%%%%Node and paths for model%%%%%%%
+\node [model, below right = 2em and 10em of D_1](model){$Model$};
+\draw [line](I_1) -| (model);
+\draw [line](I_2) -| (model);
+\draw [line](I_j) |- (model);
+\draw [line](I_last) -| (model);
+
+
+%%%%%Node and paths for policy estimates%%%%%%%
+\node [estimate, right = 5em of model](PE_2){$Policy$ $Estimate_2$};
+\node [estimate, above = 5em of PE_2](PE_1){$Policy$ $Estimate_1$};
+\node [estimate, below = 5em of PE_2](PE_3){$Policy$ $Estimate_3$};
+
+
+\draw [line] (model.east) -- (PE_1.south west);
+\draw [line] (model.east) -- (PE_2.west);
+\draw [line] (model.east) -- (PE_3.north west);
+
+
+\end{tikzpicture}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Principle 1}
+\begin{columns}
+\begin{column}{0.3\textwidth}
+\textbf{Computational Reproducibility}
+\begin{itemize}
+\item Literate \\ Programming
+\item Version control
+\item File structure
+\item Label sources
+\end{itemize}
+\end{column}
+\begin{column}{0.7\textwidth}  %%<--- here
+    \begin{center}
+     \includegraphics[width=1\textwidth]{../Images/repro.png}
+     \end{center}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Principle 2}
+\begin{columns}
+\begin{column}{0.3\textwidth}
+   \textbf{Analytic Transparency}
+   \begin{itemize}
+   \item Open code
+   \item Open data
+   \item  Report as Dynamic Document    
+   \end{itemize}
+\end{column}
+\begin{column}{0.7\textwidth}  %%<--- here
+    \begin{center}
+     \includegraphics[width=1\textwidth]{../Images/a_transp.png}
+     \end{center}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Principle 3}
+\begin{columns}
+\begin{column}{0.35\textwidth}
+ \textbf{Output \\ Transparency}
+   \begin{itemize}
+   \item Pre-committed output display
+   \item Assumptions- output link
+   \end{itemize}
+\end{column}
+\begin{column}{0.7\textwidth}  %%<--- here
+    \begin{center}
+    \vspace{-2em}
+     \includegraphics[width=.6\textwidth]{../Images/o_transp.png}
+     \end{center}
+\end{column}
+\end{columns}
+\end{frame}
+
+
+\section{Challenges And Suggestions}
+
+\begin{frame}{Challenges And Suggestions}
+\textbf{Challenges:}
+\begin{itemize}
+\item Policymakers may not want analyses to be open.
+\item Analysts may wish to keep policy analyses ``closed''. 
+\item For policy analysis contracted out to third parties: Opening methods will prevent them form reselling extensions.
+\item  Initially reproducibility represents an additional layer of work.
+\item Limits to sharing sensitivity of information, requires resources for adequate de-identification if open data is expected
+\end{itemize}
+\end{frame} 
+
+\begin{frame}{Challenges And Suggestions}
+\textbf{Suggestions:}
+\begin{enumerate}
+\item \textbf{Policy Analysts: Just Post It}. \\
+Things are moving in this direction. Play a leading role in a credibility revolution for policy analysis. 
+\pause 
+\item \textbf{Policy Analysis Organizations: Open by Default} \\
+Boost in credibility, lower costs in the long run. Examples: GiveWell, and AEI. 
+\pause 
+\item \textbf{Government Agencies and Funders: Support Open Policy Analysis}
+Examples: Require contracted policy analysis to be fully open. Support training and adoption of new tools (VC and DD). Inject resources for the transition.
+\end{enumerate}
+\end{frame} 
+
+
+\section[Conclusion]{Conclusion And Next Steps}
+
+\begin{frame}{Summing Up: Where We Are}
+   \begin{tikzpicture}[remember picture,overlay]
+       \node[at=(current page.center), xshift = 2em, yshift = -1.4em] {
+         \includegraphics[width=.86\paperwidth]{../Images/traditional_pa.PNG}
+       };
+   \end{tikzpicture}
+\end{frame}
+
+\begin{frame}{Summing Up: Where Should We Go}
+   \begin{tikzpicture}[remember picture,overlay]
+       \node[at=(current page.center), xshift = 2em, yshift = -1.4em] {
+         \includegraphics[width=.86\paperwidth]{../Images/open_pa.PNG}
+       };
+   \end{tikzpicture}
+\end{frame}
+
+%\begin{frame}{Conclusion}
+%\begin{itemize}
+%\item Draw a parallel between reproducibility crisis in empirical research and a credibility crisis in policy analysis. 
+%\item Proposed guiding principles for open policy analysis.
+%\item Identify challenges and provide recommendations for different stakeholders.
+%\end{itemize}
+%\end{frame}
+
+
+\begin{frame}{Next Steps} 
+\begin{itemize}
+\item Journal Science was key for research. Need high profile producer of policy analysis to buy in. 
+\item Develop community-endorsed guidelines for OPA (similar to TOP Guidelines for Open Science)
+\item Carry out case studies with policy agencies to fine tune guidelines, and build a collection of examples (Hoces de la Guardia 2017). 
+\end{itemize}
+\end{frame} 
+
+
+\part{Paper 2}
+\title[OPA - Minimum Wage ] % (optional, use only with long paper titles)
+{Open Policy Analysis: A Case Study of the Minimum Wage Policy Estimate}
+
+\subtitle
+{}
+
+\author[] % (optional, use only with lots of authors)
+{Fernando~Hoces de la Guardia\inst{1}}
+% - Give the names in the same order as the appear in the paper.
+% - Use the \inst{?} command only if the authors have different
+%   affiliation.
+
+\institute[Universities of Somewhere and Elsewhere] % (optional, but mostly needed)
+{
+  \inst{1}%
+  UC Berkeley:\\
+  Berkeley Initiative for Transparency in the Social Sciences\\
+}
+% - Use the \inst command only if there are several affiliations.
+% - Keep it simple, no one is interested in your street address.
+
+\date[] % (optional, should be abbreviation of conference name)
+{Congressional Budget Office\\
+March 29th, 2018}
+
+
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
 \section{Motivation}
 
-\begin{frame}{Motivation 1}
+\begin{frame}[noframenumbering]{Motivation 1: Gap On How to Conduct OPA}
 \begin{table}[ht]
 \centering
 \begin{tabular}[t]{|l|c|c|}
@@ -184,37 +751,17 @@ basicstyle=\scriptsize\tt,
 Problems & Reproducibility  &  Credibility \\
 				 &  Crisis & Crisis \\
 \hline
-Solutions &  \textit{Open Science}&    \textit{Open Policy Analysis } \\
- & Principles, Guidelines,  &  {\white Principles, Guidelines,}\\
- & Applications &   {\white Applications}\\
+Solutions &  \textit{Open Science}&    \textit{Open Policy Analysis} \\
+ & Principles, Guidelines,  &   Principles{\white, \textbf{Guidelines,}}\\
+ & Applications &   {\white \textbf{Applications}}\\
 
 \hline
 \end{tabular}
 \end{table}%
 \end{frame}
 
-\begin{frame}[noframenumbering]{Motivation 1}
-\begin{table}[ht]
-\centering
-\begin{tabular}[t]{|l|c|c|}
-\hline
-& Empirical  & Policy \\
-& Research & Analysis \\
 
-\hline
-Problems & Reproducibility  &  Credibility \\
-				 &  Crisis & Crisis \\
-\hline
-Solutions &  \textit{Open Science} &    \textit{Open Policy Analysis } \\
- & Principles, Guidelines,  &  Principles {\white , Guidelines,}\\
- & Applications &   {\white Applications}\\
-
-\hline
-\end{tabular}
-\end{table}%
-\end{frame}
-
-\begin{frame}[noframenumbering]{Motivation 1}
+\begin{frame}[noframenumbering]{Motivation 1: Gap On How to Conduct OPA}
 \begin{table}[ht]
 \centering
 \begin{tabular}[t]{|l|c|c|}
@@ -260,17 +807,17 @@ Solutions &  \textit{Open Science}&    \textit{Open Policy Analysis} \\
 \begin{itemize}
 \item Identify a case study
 \item Define guidelines
-\item Demonstrate how to achieve highest standards of OPA
+\item Demonstrate how to achieve highest standards of Open Policy Analysis (OPA)
 \item Use sensitivity analysis to explore biggest policy unknowns 
 \begin{itemize}
-\item  Surprisingly academic debate around one specific parameter seems less relevant from policy perspective
+\item  Surprisingly, academic debate around one specific parameter seems less relevant from policy perspective
 \end{itemize}
 \end{itemize}
 \end{frame} 
 
 \section[Case Study]{Description of Case Study}
 
-\begin{frame}[label =  desc_cs]{Description of Case study}
+\begin{frame}[label =  desc_cs]{Description of Case Study}
 % 4mins
 \begin{center}
 ``The Effects of a Minimum-Wage Increase on Employment and Family Income'' 
@@ -295,8 +842,16 @@ Congressional Budget Office (2014)
 \begin{frame}[label = reas_cs]{Reasons for Selecting the Case Study}
 \vspace*{1em}
 \begin{itemize}
-\item \textit{Scalable}: CBO's reputation: among the most transparent and rigorous policy analysis offices. Lessons from OPA that apply to CBO should apply also to most agencies.  Additionally the policy issue is widely known which facilitates parallels. 
-\item \textit{Recurrent}: This policy analysis will be conducted again in the future. The case study can be directly used in future calculations. 
+\item \textit{Scalable}: 
+\begin{itemize}
+\item CBO's reputation: among the most transparent and rigorous policy analysis offices. Lessons from OPA that apply to CBO should apply also to most agencies.
+\item Policy issue is widely known which facilitates parallels.
+\end{itemize}   
+\item \textit{Recurrent}:
+\begin{itemize}
+\item This policy analysis will be conducted again in the future.
+\item Case study can form the basis for future calculations.
+\end{itemize}  
 \end{itemize}
 
 \end{frame}
@@ -304,7 +859,11 @@ Congressional Budget Office (2014)
 \begin{frame}{Reasons for Selecting the Case Study}
 
 \begin{itemize}
-\item \textit{Feasible}: available data, good description of the analysis, and only one policy lever to analyze. 
+\item \textit{Feasible}: 
+\begin{itemize}
+\item Available data, good description of the analysis 
+\item Only one policy lever to analyze.
+\end{itemize}  
 \item \textit{Relevant}: 
 \end{itemize}
 
@@ -432,7 +991,7 @@ Congressional Budget Office (2014)
 \begin{frame}{Summary of Adapted Guidelines}
  \centering
  \resizebox{25em}{10em}{%
-    \begin{tabular}{ P{1.2cm} P{1.5cm} P{3cm}  P{3cm}  P{3cm} }
+    \begin{tabular}{ P{1.2cm} P{2cm} P{3cm}  P{3cm}  P{3cm} }
      \toprule
      {\black Standard} & {\black Level 0} 	& {\black Level 1} & {\black Level 2} & {\black Level 3} \\
      \midrule      \midrule
@@ -442,7 +1001,7 @@ Congressional Budget Office (2014)
      \midrule
       {\black Methods \& Code} & {\gray Key assumption are listed} & {\gray Methods are described in prose. Large amount of work is required to reproduce qualitatively similar estimates}  & {\gray Methods and described in prose, with detailed formulas, and code is provided as supplementary material} & {\gray Lvl 2 + All is in the same document where changes in the code affect the output automatically} \\
      \toprule
-     \multicolumn{5}{ P{11.7cm} }{  \raggedleft {\black\small{ From TOP guidelines \citep{nosek2015promoting} v1.0.1}} \small{\hyperlink{no_gray}{\beamerbutton{}}} }
+     \multicolumn{5}{ P{11.7cm} }{  \raggedleft {\black\small{ From TOP guidelines (Nosek et al 2015) v1.0.1}} \small{\hyperlink{no_gray}{\beamerbutton{}}} }
    \end{tabular}}
 \end{frame}
 
@@ -450,7 +1009,7 @@ Congressional Budget Office (2014)
 \begin{frame}[noframenumbering]{Summary of Adapted Guidelines}
  \centering
  \resizebox{25em}{10em}{%
-    \begin{tabular}{ P{1.2cm} P{1.5cm} P{3cm}  P{3cm}  P{3cm} }
+    \begin{tabular}{ P{1.2cm} P{2cm} P{3cm}  P{3cm}  P{3cm} }
      \toprule
     {\black Standard} & {\red Level 0 } 	&  {\red Level 1 } &  {\red Level 2}  & {\red Level 3 }  \\
      \midrule      \midrule
@@ -460,7 +1019,7 @@ Congressional Budget Office (2014)
      \midrule
       {\black Methods \& Code} & {\gray Key assumption are listed} & {\gray Methods are described in prose. Large amount of work is required to reproduce qualitatively similar estimates}  & {\gray Methods and described in prose, with detailed formulas, and code is provided as supplementary material} & {\gray Lvl 2 + All is in the same document where changes in the code affect the output automatically} \\
      \toprule
-     \multicolumn{5}{ P{11.7cm} }{  \raggedleft {\black\small{ From TOP guidelines \citep{nosek2015promoting} v1.0.1}} \small{\hyperlink{no_gray}{\beamerbutton{}}} }
+     \multicolumn{5}{ P{11.7cm} }{  \raggedleft {\black\small{ From TOP guidelines (Nosek et al 2015) v1.0.1}} \small{\hyperlink{no_gray}{\beamerbutton{}}} }
    \end{tabular}}
 \end{frame}
 
@@ -468,7 +1027,7 @@ Congressional Budget Office (2014)
 \begin{frame}[noframenumbering]{Summary of Adapted Guidelines}
  \centering
  \resizebox{25em}{10em}{%
-    \begin{tabular}{ P{1.2cm} P{1.5cm} P{3cm}  P{3cm}  P{3cm} }
+    \begin{tabular}{ P{1.2cm} P{2cm} P{3cm}  P{3cm}  P{3cm} }
      \toprule
      {\red Standard} & {\black Level 0} 	& {\black Level 1} & {\black Level 2} & {\black Level 3} \\
      \midrule      \midrule
@@ -478,14 +1037,14 @@ Congressional Budget Office (2014)
      \midrule
       {\red Methods \& Code} & {\gray Key assumption are listed} & {\gray Methods are described in prose. Large amount of work is required to reproduce qualitatively similar estimates}  & {\gray Methods and described in prose, with detailed formulas, and code is provided as supplementary material} & {\gray Lvl 2 + All is in the same document where changes in the code affect the output automatically} \\
      \toprule
-     \multicolumn{5}{ P{11.7cm} }{  \raggedleft {\black\small{ From TOP guidelines \citep{nosek2015promoting} v1.0.1}} \small{\hyperlink{no_gray}{\beamerbutton{}}} }
+     \multicolumn{5}{ P{11.7cm} }{  \raggedleft {\black\small{ From TOP guidelines (Nosek et al 2015) v1.0.1}} \small{\hyperlink{no_gray}{\beamerbutton{}}} }
    \end{tabular}}
 \end{frame}
 
 \begin{frame}[noframenumbering, label=guidelines_sum]{Summary of Adapted Guidelines}
  \centering
  \resizebox{25em}{10em}{%
-    \begin{tabular}{ P{1.2cm} P{1.5cm} P{3cm}  P{3cm}  P{3cm} }
+    \begin{tabular}{ P{1.2cm} P{2cm} P{3cm}  P{3cm}  P{3cm} }
      \toprule
      Standard & Level 0 	& Level 1 & Level 2 & Level 3 \\
      \midrule      \midrule
@@ -495,38 +1054,16 @@ Congressional Budget Office (2014)
      \midrule
       {\black Methods \& Code} & {\gray Key assumption are listed} & {\gray Methods are described in prose. Large amount of work is required to reproduce qualitatively similar estimates}  & {\gray Methods and described in prose, with detailed formulas, and code is provided as supplementary material} & {\gray Lvl 2 + All is in the same document where changes in the code affect the output automatically} \\
      \toprule
-     \multicolumn{5}{ P{11.7cm} }{  \raggedleft {\red\small{ From TOP guidelines \citep{nosek2015promoting} v1.0.1}} \small{\hyperlink{no_gray}{\beamerbutton{}}} }
+     \multicolumn{5}{ P{11.7cm} }{  \raggedleft {\red\small{ From TOP guidelines (Nosek et al 2015) v1.0.1}} \small{\hyperlink{no_gray}{\beamerbutton{}}} }
    \end{tabular}}
 \end{frame}
 
 \section{Application}
 
 
-\begin{frame}[label=fr_pa]{\textbf{Before: } Applying Guidelines to CBO Report}
- \centering
- \resizebox{25em}{10em}{%
-    \begin{tabular}{ P{1.2cm} P{1.5cm} P{3cm}  P{3cm}  P{3cm} }
-     \toprule
-     Standard & Level 0 	& Level 1 & Level 2 & Level 3 \\
-     \midrule      \midrule
-    Workflow &  Policy estimates vaguely described  &  All the inputs, and their corresponding sources, used in the calculations are listed & {\gray Lvl 1 + Policy estimates are listed, in same unit if possible} & {\gray Lvl 2 + all the components can be modified with little effort} \\
-     \midrule
-    Data & Report says nothing & Clearly stated whether all, some components, or none of the data is available, with instructions for access when possible. & {\gray Lvl 1 + report and data are in same place} & {\gray Lvl 2 + Report has specific lines of code that call the data and changes in the data produce traceable changes in the report} \\
-     \midrule
-      Methods \& Code &  Key assumption are listed & Methods are described in prose. Large amount of work is required to reproduce qualitatively similar estimates & {\gray Methods and described in prose, with detailed formulas, and code is provided as supplementary material} & {\gray Lvl 2 + All is in the same document where changes in the code affect the output automatically} \\
-     \toprule
-     \multicolumn{5}{ P{11.7cm} }{ \raggedleft \small{ From TOP guidelines \citep{nosek2015promoting} v1.0.1} \small{\hyperlink{low_tr_ex}{\beamerbutton{}}}  }
-   \end{tabular}
-   }
-\end{frame}
 
 
-
-
-
-
-
-\begin{frame}[label=demo]{\textbf{After: } Applying Guidelines to Build Dynamic Document}
+\begin{frame}[label=demo]{Applying Guidelines to Build an Open Report}
 \begin{center}
 
 {\Huge
@@ -542,7 +1079,7 @@ Congressional Budget Office (2014)
 
 
 
-\begin{frame}[shrink=25, label=map_cbo]{Benefit 1: Map the complete policy analysis}
+\begin{frame}[shrink=25, label=map_cbo]{Map the complete policy analysis}
 
 \tikzstyle{estimate} = [diamond, draw, node distance= 7em,text width = 5em, minimum height=5em, minimum width=5em, align = center]
 \tikzstyle{line} = [draw, -stealth]
@@ -562,7 +1099,7 @@ Congressional Budget Office (2014)
 %%%%%Nodes: Sources%%%%%%%
 \node [source](D_1){CPS ORG; CPS ASEC; CBO 10-Y projections};
 \node [source, below = 1em of D_1](Lit){Labor demand for teenagers; Ripple effects};
-\node [source, below = 1em of Lit](OR){Extrapolation for adults; Aggregate effects; Dist of losses};
+\node [source, below = 1em of Lit](OR){Extrap. for adults; Aggregate effects; Dist of losses};
 
 
 \draw[decoration={brace,mirror}, decorate] (-1.2,-10) -- node[below=6pt] {$Sources$}(1.1,-10);
@@ -625,29 +1162,7 @@ Congressional Budget Office (2014)
 \hyperlink{equations}{\beamerbutton{}}
 \end{frame}
 
-\begin{frame}[label=low_tr_ex]{Benefit 2: Easier Methodological Appraisal. Example: dis-employment effects \textbf{Before}}
-
-
-Steps taken to verify the analysis \&  employment variation $(\widehat{\Delta E}\times 1000)$ at each line\footnotemark 
-
-\footnotetext[1]{Assuming target population $\approx 22$ million, $\overline{\Delta w_{w\leq MW^{'}}} \approx 14\%$, and non-compliance $\approx 15\%$ }
- 
-
-\begin{enumerate}
-\pause
-\item Find an elasticity: -0.1 (page 25): {\red $\widehat{\Delta E} \approx 300$ }
-\pause
-\item What about adults? $\eta^{adults}=\frac{1}{3}\eta^{teens}$ (page 28):  {\red $\widehat{\Delta E} \approx 100$  } 
-\pause
-\item What about the adjustment? $\widetilde{ \eta^{g}_{w\leq MW} } =  \frac{\eta^{g}_{lit}}{p^{g}_{w\leq MW}} \times \frac{\%\Delta MW}{\overline{\%\Delta w^{g}}}$ (page 26-28 + 2 papers):   {\red $\widehat{\Delta E} \approx 1,100$  } 
-\pause
-\item The adjustment factors $\frac{1}{p^{g}_{w\leq MW}} \times \frac{\%\Delta MW}{\overline{\%\Delta w^{g}}} = F^{g}_{adj}$ are not computed from the data (3.2 teens, 19.5 adults). Instead: $F^{teen}_{adj} = F^{adult}_{adj}= 4.5$ (page 28) ${\red\widehat{\Delta E} \approx 500}$   
-\end{enumerate}
-\textit{Steps 2-4 took several days of work! }
-\small{\hyperlink{fr_pa}{\beamerbutton{}}}
-\end{frame}
-
-\begin{frame}{Benefit 3: All in one Output 1/3}
+\begin{frame}{All in One Output 1/3}
 \begin{figure}[h!]
 \centering
 \hspace*{-3em}
@@ -656,7 +1171,7 @@ Steps taken to verify the analysis \&  employment variation $(\widehat{\Delta E}
 \end{figure}	
 \end{frame}
 
-\begin{frame}{Benefit 3: All in one Output 2/3}
+\begin{frame}{Benefit 3: All in One Output 2/3}
 \begin{figure}[h!]
 \centering
 \hspace*{-3em}
@@ -665,7 +1180,7 @@ Steps taken to verify the analysis \&  employment variation $(\widehat{\Delta E}
 \end{figure}	
 \end{frame}
 
-\begin{frame}{Benefit 3: All in one Output 3/3}
+\begin{frame}{Benefit 3: All in One Output 3/3}
 \begin{figure}[h!]
 \centering
 \hspace*{-3em}
@@ -713,30 +1228,6 @@ Steps taken to verify the analysis \&  employment variation $(\widehat{\Delta E}
 \end{figure}	
 \end{frame}
 
-\begin{frame}{Comparing the Trade-offs: A Toy Example}
-
-Model for the normative comparison made by a policy maker (welfare function):
-
-\begin{align*}
-W(\rho) &= \sum_{i \in N} \left( \omega_{wg}  wg_{i} + \omega_{wl} wl_{i} + \omega_{bl} bl_{i} \right) \omega^{d}_{i}(Q_{i}, \rho) \\
-\text{with:}& \nonumber \\
-\omega^{d}_{i}(Q_{i}, \rho) &= \frac{(1 - \rho(Q_{i} - Q_{median}) ) }{\sum_{i} \omega^{d}_{i}(Q_{i}) } Q_{max} \quad \text{for }  \rho \in \left(-\frac{1}{2}, \frac{1}{2} \right) \nonumber
-\end{align*}
-$\rho>0$ represent positive valuation of progressive redistribution. $\rho<0$ represents positive valuation of regressive redistribution (dis-utility from self loss greater than utility from others gain). 
-\end{frame}
-
-
-\begin{frame}{ Redistribiutional Preferences  \linebreak \vspace*{-1em} Toy Example ({ $\omega_{WG} = \omega_{WL} = \omega_{BL} = 1$}) }
-
-\vspace{-.2em}
-\begin{figure}[h!]
-\centering
-\includegraphics[scale = 0.35]{../Images/sample_pref}
-\label{toy_ex}
-\end{figure}	
-\end{frame}
-
-
 
 \begin{frame}{Sensitivity Analysis For Multiple Parameters}
 \vspace*{-1.2em}
@@ -750,18 +1241,18 @@ $\rho>0$ represent positive valuation of progressive redistribution. $\rho<0$ re
 Source & Input                & $10\% \Delta^{+}$ 	& $10\% \Delta^{-}$ & $10\% \Delta^{+}$ 	& $10\% \Delta^{-}$\\ \hline
 \multicolumn{2}{l|}{Data}     &        &             		&  	\\
 	& Annual wage growth ($g_{w}$)  	&	-3\% 	& 2\% 		&	-2\% 	& 1\%		\\
-	& Annual growth in $N$ 			&	0.8\% 	& -0.9\%	 	&	0.5\% 	& -0.5\%	 \pause	\\
+	& Annual growth in $N$ 			&	0.8\% 	& -0.9\%	 	&	0.5\% 	& -0.5\%	 \\
 \multicolumn{2}{l|}{Research}        &        	&      	 	&	\\
-    & $\eta_{teen}$     				&  -4\%    	&  4\%      &  -2\%    	&  2\%	    \pause \\
+    & $\eta_{teen}$     				&  -4\%    	&  4\%      &  -2\%    	&  2\%	    \\
    	& Ripple Scope $(8.7, 11.5)$     &  37\%    	&  -24\%    &  21\%    &  -14\%	    \\
-   	& Ripple Intensity $(50\% \Delta w)$& 5\%     &  -5\%     &  3\%     &  -3\%	   \pause \\
+   	& Ripple Intensity $(50\% \Delta w)$& 5\%     &  -5\%     &  3\%     &  -3\%	   \\
 \multicolumn{2}{l|}{Guess Work}      &        	&          	&           \\
    	& Extrapolation factor ($F_{ex}$)&  -3\%    	&  2\%    	&  -1\%    &  1\%	    \\ 
    	& Non compliance ($\alpha_{1}$)  &  -7\%    	&  7\%      &  -4\%    &  4\%	    \\
    	& Substitution factor ($F_{sub}$)&      		&  20\%     &     		&  -8\%	    \\ 
    	& Net benefits					&    -5\%  	&  5\%      &     2\%  	&  -2\%	    \\
    	& Distribution of balance losses  &   \multicolumn{2}{c|}{}&    \multicolumn{2}{c}{} \\
-    & Current: $(1\%, 29\%, 70\%)$	& 	\multicolumn{2}{c|}{} &   \multicolumn{2}{c}{} \pause\\
+    & Current: $(1\%, 29\%, 70\%)$	& 	\multicolumn{2}{c|}{} &   \multicolumn{2}{c}{}\\
 	& 	 $(1\%, 4\%, 95\%)$			&    \multicolumn{2}{c|}{22\%}     &    \multicolumn{2}{c}{13\%} 	    \\	 
   	& 	 $(5\%, 35\%, 60\%)$			&    \multicolumn{2}{c|}{-17\%}     &    \multicolumn{2}{c}{-9\%} 	    \\
   	& 	$1/N$						&    \multicolumn{2}{c|}{-129\%}     &    \multicolumn{2}{c}{-73\%}	   \\
@@ -770,56 +1261,26 @@ Source & Input                & $10\% \Delta^{+}$ 	& $10\% \Delta^{-}$ & $10\% \
 \end{table}
 \end{frame}
 
-
-\begin{frame}{Welfare Effects: Elasticity of Labor Demand $W(\eta( F_{ext}, F_{adj},\eta_{lit}))$ }
-\end{frame}
-
-\begin{frame}[noframenumbering]{Welfare Effects: Elasticity of Labor Demand $W(\eta( F_{ext}, F_{adj}, \highlightr{\eta_{lit}}))$ }
-\begin{figure}[h!]
-\centering
-\hspace{-1em}
-\includegraphics[scale = 0.13]{../Images/sa_extrap}
-\end{figure}	
-\end{frame}
-
-\begin{frame}[noframenumbering]{Welfare Effects: Elasticity of Labor Demand $W(\eta(F_{ext},  \highlightr{F_{adj}},\eta_{lit}))$}
-\begin{figure}[h!]
-\centering
-\hspace{-1em}
-\includegraphics[scale = 0.13]{../Images/sa_f_adj}
-\end{figure}	
-\end{frame}
-
-\begin{frame}[noframenumbering]{Welfare Effects: Elasticity of Labor Demand  $W(\eta( \highlightr{F_{ext}}, F_{adj},\eta_{lit}))$ }
-\begin{figure}[h!]
-\centering
-\hspace{-1em}
-\includegraphics[scale = 0.13]{../Images/sa_eta}
-\end{figure}	
-\end{frame}
-
-
-
-\begin{frame}{Much More Policy Relevant To Learn Who Pays For Wage Raise}
-\begin{figure}[h!]
-\vspace{-0em}
-\centering
-\includegraphics[scale = 0.09]{../Images/sa_DLf}
-\label{SA_3}
-\end{figure}	
-\end{frame}
-
-\section[Discussion]{Discussion and Next Steps}
+\section[Discussion]{Discussion}
 % 5mins
 \setbeamercovered{transparent}
+
+\begin{frame}{Limitations}
+\begin{itemize}
+\item There is additional scope for reproducibility.
+\item Complete case study requires extensive institutional knowledge.
+\item Guidelines need to be build based on consensus of practitioners. 
+\end{itemize} 
+\end{frame}
+
 \begin{frame}{Discussion}
 \onslide<1>{
 Let's assume this becomes the new status quo. 
 \begin{itemize}
-\item Costs of producing the next report on effects of min wage will be very small. 
+\item Costs of producing the next report on effects of minimum wage will be very small. 
 \item Every additional effort will imply improvements on the ``state of the art'' report (e. g. $dBL$; $\eta(MW), \alpha_{1}(MW)$)
 \item Learning about one parameter (QALYs, DWL) will update estimates \textit{across} reports.  
-\item Much easier to have a substantive and normative policy debate. Pilot example:{\blue\texttt{\href{https://fhoces.shinyapps.io/example_min_wage/}{ \underline{Shiny App!}}}}.
+\item Much easier to have a substantive and normative policy debate. Pilot example: {\blue\texttt{\href{https://fhoces.shinyapps.io/example_min_wage/}{\underline{Shiny App!}}}}.
 } 
 %\onslide<2>{
 %\item Two type of contributions ($\sim$software development):
@@ -845,249 +1306,55 @@ Let's assume this becomes the new status quo.
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Limitations}
-Application 
-
-Guidelines
-\end{frame}
-
-
-\begin{frame}{Next Steps}
-
+\begin{frame}{We Want to Work With You}
 \begin{itemize}
-\item Publish a motivation paper on why do we need open policy analysis
-\item{\textbf{Find next case study, now with buy-in from a policy agency}}
+\item CBO is a leader in policy analysis. Leading OPA would shield its credibility and encourage others (ala Journal Science for Empirical Research). 
+\item{What can BITSS offer: }
 \begin{itemize}
-\item \textbf{Cost Benefit Analysis}
-\item \textbf{Ex ante economic analysis/Micro-simulation study}
+\item Technical support next case study (funded through August 2018).
+\item Training research transparency tools.
 \end{itemize}
-\item Review and publish guidelines
+\item Join a group of experts to develop and publish guidelines (APPAM 2018 convening).
 \end{itemize}
 \end{frame}
 
 
-
-
-\begin{frame}[shrink=30]{}
-
-
-
-\tikzstyle{agent} = [diamond, draw, node distance= 7em, minimum height=5em, minimum width=5em]
-\tikzstyle{line} = [draw, -stealth]
-
-\tikzstyle{line_d} = [draw, dashed, -stealth]
-\tikzstyle{inp} = [draw, circle, text centered, minimum height=2em, text width=2em, node distance= 10em]
-\tikzstyle{outp} = [draw, circle, text centered, minimum height=2em, text width=2em, node distance= 10em]
-\tikzstyle{block1} = [draw, circle,  text width=3em, text centered, minimum height=2em, node distance= 5em]
-\tikzstyle{block2} = [draw, circle,  text width=4em, text centered, minimum height=2em, node distance= 5em]
-\tikzstyle{block3} = [draw, rounded rectangle,  text width=5em, text centered, minimum height=2em, node distance= 5em]
-
-\begin{figure}[h!]
-\centering
-\hspace*{0.2\linewidth}
-\begin{tikzpicture}[thick,scale=0.2, every node/.style={scale=0.8}]
-
-%% The oddly shaped truth
-\node[regular polygon, regular polygon sides=3,
-              draw, fill=white,
-              inner sep=.1em,
-              shape border rotate=70](tru){Truth};
-
-
-%%%%%Researcher 1 and Inputs: depends on R_1%%%%%%%
-\node [block1, right = 5em of tru](R_2){$R_2$};
-\node [block1, above = 8em of R_2](R_1){$R_1$} node [left = -0.1em of R_1, text width = 5em]{Large Treatment Effect};
-\node [block1, below = 8em of R_2](R_3){$R_3$} node [left = -0.1em of R_3, text width = 5em]{Small Treatment Effect};
-
-\draw[decoration={brace,mirror}, decorate] (13,-33) -- node[below=6pt, text width = 4.8em](lab1){Researchers Degrees of 
-Freedom}(18,-33);
-
-\draw[decoration={brace,mirror}, decorate] (29,-33) -- node[below=6pt, text width = 4.8em](lab2){P. Analyst Degrees of 
-Freedom}(34,-33);
-
-\draw[decoration={brace}, decorate] (31,33) -- node[below=2pt]{Observed by citizens}(70,33);
-
-%\node [agent](Researcher_1){$R_1$} node [left = 0.6em of Researcher_1, text width = 8em]{Large Treatment Effect};
-
-\node [block1, right = 5em of R_1](PA_12){$PA_{1,2}$};
-\node [block1, above = .5em of PA_12](PA_11){$PA_{1,1}$} node [right = -0.1em of PA_11, text width = 5em]{Large gains only};
-\node [block1, below = .5em of PA_12](PA_13){$PA_{1,3}$};
-
-\node [block1, right = 5em of R_2](PA_22){$PA_{22,}$};
-\node [block1, above = .5em of PA_22](PA_21){$PA_{2,1}$};
-\node [block1, below = .5em of PA_22](PA_23){$PA_{2,3}$};
-
-\node [block1, right = 5em of R_3](PA_32){$PA_{3,2}$};
-\node [block1, above = .5em of PA_32](PA_31){$PA_{3,1}$};
-\node [block1, below = .5em of PA_32](PA_33){$PA_{3,3}$} node [right = -0.1em of PA_33, text width = 5em]{Large losses only};
-
-
-\node [block2, above right = 3em and 15em of R_2](PM_1){Policy\linebreak Maker 1};
-\node [block2, below right = 3em and 15em of R_2](PM_2){Policy\linebreak Maker 2};
-
-\node [block3, right = 3em of PM_1](PC_1){Support};
-\node [block3, right = 3em of PM_2](PC_2){Oppose};
-
-
-%%%%% Draw edges col 2%%%%%%%%%%%%%%%%%
-%Truth to research
-\draw [line](tru) -- (R_1);
-\draw [line_d](tru) -- (R_2);
-\draw [line_d](tru) -- (R_3);
-
-
-%Research  to PA
-\draw [line_d](R_1) -- (PA_13);
-\draw [line_d](R_1) -- (PA_11);
-\draw [line](R_1) -- (PA_12);
-
-\draw [line_d](R_2) -- (PA_23);
-\draw [line_d](R_2) -- (PA_21);
-\draw [line_d](R_2) -- (PA_22);
-
-\draw [line_d](R_3) -- (PA_33);
-\draw [line_d](R_3) -- (PA_31);
-\draw [line_d](R_3) -- (PA_32);
-
-
-
-%PA to PM
-\draw [line](PA_11) -- (PM_1);
-\draw [line](PA_33) -- (PM_2);
-%PM to PC
-\draw [line](PM_1) -- (PC_1);
-\draw [line](PM_2) -- (PC_2);
-
-\node[draw=red,rounded corners = 1ex,fit=(PA_11)(PA_33),inner sep = 44pt](redb){};
-\node [right = 5em of PA_22,color=red, text width = 8em](t_redb){\Huge Are you here?};
-\draw [line, color=red](redb) -- (t_redb);
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
-\end{tikzpicture}
-\caption{Policy-making with low TR in research and policy analysis}\label{low_cred}
-\end{figure}
-%\end{comment}
+\begin{frame}{An Aspiration}
+   \begin{tikzpicture}[remember picture,overlay]
+       \node[at=(current page.center), xshift = 2em, yshift = -1.4em] {
+         \includegraphics[width=.87\paperwidth]{../Images/aspiration.PNG}
+       };
+   \end{tikzpicture}
 \end{frame}
 
 
 
-\begin{frame}[shrink=30, noframenumbering]{}
-
-
-
-\tikzstyle{agent} = [diamond, draw, node distance= 7em, minimum height=5em, minimum width=5em]
-\tikzstyle{line} = [draw, -stealth]
-
-\tikzstyle{line_d} = [draw, dashed, -stealth]
-\tikzstyle{inp} = [draw, circle, text centered, minimum height=2em, text width=2em, node distance= 10em]
-\tikzstyle{outp} = [draw, circle, text centered, minimum height=2em, text width=2em, node distance= 10em]
-\tikzstyle{block1} = [draw, circle,  text width=3em, text centered, minimum height=2em, node distance= 5em]
-\tikzstyle{block2} = [draw, circle,  text width=4em, text centered, minimum height=2em, node distance= 5em]
-\tikzstyle{block3} = [draw, rounded rectangle,  text width=5em, text centered, minimum height=2em, node distance= 5em]
-
-\begin{figure}[h!]
-\centering
-\hspace*{0.2\linewidth}
-\begin{tikzpicture}[thick,scale=0.2, every node/.style={scale=0.8}]
-
-%% The oddly shaped truth
-\node[regular polygon, regular polygon sides=3,
-              draw, fill=white,
-              inner sep=.1em,
-              shape border rotate=70](tru){Truth};
-
-
-%%%%%Researcher 1 and Inputs: depends on R_1%%%%%%%
-\node [block1, right = 5em of tru](R_2){$R_2$};
-\node [block1, above = 8em of R_2](R_1){$R_1$} node [left = -0.1em of R_1, text width = 5em]{Large Treatment Effect};
-\node [block1, below = 8em of R_2](R_3){$R_3$} node [left = -0.1em of R_3, text width = 5em]{Small Treatment Effect};
-
-\draw[decoration={brace,mirror}, decorate] (13,-33) -- node[below=6pt, text width = 4.8em](lab1){Researchers Degrees of 
-Freedom}(18,-33);
-
-\draw[decoration={brace,mirror}, decorate] (29,-33) -- node[below=6pt, text width = 4.8em](lab2){P. Analyst Degrees of 
-Freedom}(34,-33);
-
-\draw[decoration={brace}, decorate] (31,33) -- node[below=2pt]{Observed by citizens}(70,33);
-
-%\node [agent](Researcher_1){$R_1$} node [left = 0.6em of Researcher_1, text width = 8em]{Large Treatment Effect};
-
-\node [block1, right = 5em of R_1](PA_12){$PA_{1,2}$};
-\node [block1, above = .5em of PA_12](PA_11){$PA_{1,1}$} node [right = -0.1em of PA_11, text width = 5em]{Large gains only};
-\node [block1, below = .5em of PA_12](PA_13){$PA_{1,3}$};
-
-\node [block1, right = 5em of R_2](PA_22){$PA_{22,}$};
-\node [block1, above = .5em of PA_22](PA_21){$PA_{2,1}$};
-\node [block1, below = .5em of PA_22](PA_23){$PA_{2,3}$};
-
-\node [block1, right = 5em of R_3](PA_32){$PA_{3,2}$};
-\node [block1, above = .5em of PA_32](PA_31){$PA_{3,1}$};
-\node [block1, below = .5em of PA_32](PA_33){$PA_{3,3}$} node [right = -0.1em of PA_33, text width = 5em]{Large losses only};
-
-
-\node [block2, above right = 3em and 15em of R_2](PM_1){Policy\linebreak Maker 1};
-\node [block2, below right = 3em and 15em of R_2](PM_2){Policy\linebreak Maker 2};
-
-\node [block3, right = 3em of PM_1](PC_1){Support};
-\node [block3, right = 3em of PM_2](PC_2){Oppose};
-
-
-%%%%% Draw edges col 2%%%%%%%%%%%%%%%%%
-%Truth to research
-\draw [line](tru) -- (R_1);
-\draw [line_d](tru) -- (R_2);
-\draw [line_d](tru) -- (R_3);
-
-
-%Research  to PA
-\draw [line_d](R_1) -- (PA_13);
-\draw [line_d](R_1) -- (PA_11);
-\draw [line](R_1) -- (PA_12);
-
-\draw [line_d](R_2) -- (PA_23);
-\draw [line_d](R_2) -- (PA_21);
-\draw [line_d](R_2) -- (PA_22);
-
-\draw [line_d](R_3) -- (PA_33);
-\draw [line_d](R_3) -- (PA_31);
-\draw [line_d](R_3) -- (PA_32);
-
-
-
-%PA to PM
-\draw [line](PA_11) -- (PM_1);
-\draw [line](PA_33) -- (PM_2);
-%PM to PC
-\draw [line](PM_1) -- (PC_1);
-\draw [line](PM_2) -- (PC_2);
-
-\node[draw=red,rounded corners = 1ex,fit=(PA_12),inner sep = 14pt](redb){};
-\node [right = 5em of PA_12,color=red, text width = 16em](t_redb){ \Huge Would you like to show that you are here?};
-\draw [line, color=red](redb) -- (t_redb);
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
-\end{tikzpicture}
-\caption{Policy-making with low TR in research and policy analysis}\label{low_cred}
-\end{figure}
-%\end{comment}
-\end{frame}
 
 \begin{frame}[noframenumbering]
 \begin{center}
 \vspace*{4em}
-{\Large Thank you.\\}
-\bigskip
-Pre-print: [PP URL HERE]   \\
-Contact:  \href{mailto:fhoces@berkeley.edu}{fhoces@berkeley.edu}
+{\LARGE Let's work together!\\}
+{\blue \href{https://www.bitss.org/}{bitss.org}}
+\end{center}
+\end{frame}
 
+
+
+\begin{frame}[noframenumbering]
+\begin{center}
+\vspace*{6em}
+{\LARGE Thank you.\\}
+\bigskip
+{\small
+Pre-prints:\\
+{\blue \href{  [PP URL HERE] }{Why OPA} } \\
+{\blue \href{https://osf.io/preprints/bitss/ba7tr/}{OPA Case Study}  } \\
+\medskip
+Slides at \\
+{\blue \href{http://www.github.com/fhoces/CBO2018}{github.com/fhoces/CBO2018}  }
+\bigskip \\
+\href{mailto:fhoces@berkeley.edu}{fhoces@berkeley.edu}
+}
 \end{center}
 \end{frame}
 
@@ -1109,12 +1376,28 @@ Back-up slides
 \backupbegin
 
 
-\bibliography{../resources/motivation_paper}
-\bibliographystyle{plainnat}
+
+\begin{frame}[label=low_tr_ex]{Easier Methodological Appraisal. Example: dis-employment effects \textbf{Before}}
 
 
+Steps taken to verify the analysis \&  employment variation $(\widehat{\Delta E}\times 1000)$ at each line\footnotemark 
 
+\footnotetext[1]{Assuming target population $\approx 22$ million, $\overline{\Delta w_{w\leq MW^{'}}} \approx 14\%$, and non-compliance $\approx 15\%$ }
+ 
 
+\begin{enumerate}
+\pause
+\item Find an elasticity: -0.1 (page 25): {\red $\widehat{\Delta E} \approx 300$ }
+\pause
+\item What about adults? $\eta^{adults}=\frac{1}{3}\eta^{teens}$ (page 28):  {\red $\widehat{\Delta E} \approx 100$  } 
+\pause
+\item What about the adjustment? $\widetilde{ \eta^{g}_{w\leq MW} } =  \frac{\eta^{g}_{lit}}{p^{g}_{w\leq MW}} \times \frac{\%\Delta MW}{\overline{\%\Delta w^{g}}}$ (page 26-28 + 2 papers):   {\red $\widehat{\Delta E} \approx 1,100$  } 
+\pause
+\item The adjustment factors $\frac{1}{p^{g}_{w\leq MW}} \times \frac{\%\Delta MW}{\overline{\%\Delta w^{g}}} = F^{g}_{adj}$ are not computed from the data (3.2 teens, 19.5 adults). Instead: $F^{teen}_{adj} = F^{adult}_{adj}= 4.5$ (page 28) ${\red\widehat{\Delta E} \approx 500}$   
+\end{enumerate}
+\textit{Steps 2-4 took several days of work! }
+\small{\hyperlink{fr_pa}{\beamerbutton{}}}
+\end{frame}
 
 \begin{frame}[label=equations]{{\small\hyperlink{map_cbo}{\beamerbutton{}}}Equations from Model in DD}
 \subsection{Employment}
@@ -1135,7 +1418,7 @@ The elasticity for adults from the literature is define as the one for teenagers
 \end{frame}
 
 \begin{frame}{{\small\hyperlink{map_cbo}{\beamerbutton{}}}Adjustments to the elasticity of labor demand}
-Following \cite{neumark2008minimum, brown1999minimum}. First:
+Following Neumark and Wascher (2008),  Brown (1999). First:
 
 \begin{flalign}
 \eta^{s}_{lit} &= p^{s}_{w\leq MW} \eta^{s}_{w\leq MW} + (1 - p^{s}_{w\leq MW})\eta^{s}_{w > MW}  \hspace{2em} s = \{teens, \, adults \} &&\nonumber 
@@ -1326,8 +1609,33 @@ Distribution of balance loses \linebreak \textbf{Depends on}: $\overline{WG_{q}}
 
 \end{frame}
 
+\begin{frame}{Comparing the Trade-offs: A Toy Example}
+
+Model for the normative comparison made by a policy maker (welfare function):
+
+\begin{align*}
+W(\rho) &= \sum_{i \in N} \left( \omega_{wg}  wg_{i} + \omega_{wl} wl_{i} + \omega_{bl} bl_{i} \right) \omega^{d}_{i}(Q_{i}, \rho) \\
+\text{with:}& \nonumber \\
+\omega^{d}_{i}(Q_{i}, \rho) &= \frac{(1 - \rho(Q_{i} - Q_{median}) ) }{\sum_{i} \omega^{d}_{i}(Q_{i}) } Q_{max} \quad \text{for }  \rho \in \left(-\frac{1}{2}, \frac{1}{2} \right) \nonumber
+\end{align*}
+$\rho>0$ represents positive valuation of progressive redistribution. $\rho<0$ represents positive valuation of regressive redistribution. 
+\end{frame}
+
+
+\begin{frame}{ Redistribiutional Preferences  \linebreak \vspace*{-1em} Toy Example ({ $\omega_{WG} = \omega_{WL} = \omega_{BL} = 1$}) }
+
+\vspace{-.2em}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale = 0.35]{../Images/sample_pref}
+\label{toy_ex}
+\end{figure}	
+\end{frame}
 
 \backupend
 
 
- \end{document}
+
+
+\end{document}
+
