@@ -34,6 +34,7 @@
 \usepackage{array}
 \usepackage{graphicx}
 \usepackage{hyperref}
+\usepackage{multicol}
 
 
 % or whatever
@@ -195,7 +196,7 @@ March 29th, 2018}
 \section[Evidence Based]{Policy Analysis And The Evidence-Based Policy Movement}
 
 \begin{frame}{Policy Analysis And The Evidence-Based Policy Movement}
-Evidence-Based Movement is Growing. 
+Evidence-Based movement is growing. 
 \begin{itemize}
 \item ``The golden age of evidence-based policy'' (Haskins 2017).
 %\begin{itemize}
@@ -205,7 +206,7 @@ Evidence-Based Movement is Growing.
 \item Commission on Evidence-Based Policymaking (CEBP, 2017)
 \end{itemize}
 \pause
-Policy Analysis is fundamental link. 
+Policy Analysis is a fundamental link. 
 \begin{itemize}
 \item As many definitions as textbooks (Dunn, 2015; Weimer \& Vining, 2017; Williams, 1971)
 \item Common denominator: client-oriented empirical analysis meant to inform a specific policy debate
@@ -282,9 +283,10 @@ Policy Analysis is fundamental link.
 %\item  Researchers believe in good science but don't practices it (Anderson, Martinson, \& De Vries 2007).  
 %\pause
 %\item ``Most published research is false'' Ioannidis (2005). 
-\item Large magnitude of Publication Bias (Franco et al 2014).  
+\item Large magnitude of publication bias (Franco et al 2014).  
 \item Evidence of extensive p-hacking across social science disciplines (Gerber et al 2008, Brodeur et al 2016).
-\item  Replication rates are low (Collaboration et al, 2015 40-60\%, Camerer et al, 2016 60\%). Computational reproducibility is also low (Stodden et al 2016, Chang and Li 2015 45\%, Gertler et al 2018 14\%).
+\item Replication rates are low (Collaboration et al, 2015 , Camerer et al, 2016). 
+\item Computational reproducibility is also low (Stodden et al 2016, Chang and Li 2015, Gertler et al 2018).
 \end{itemize}
 
 \end{frame} 
@@ -297,7 +299,7 @@ Policy Analysis is fundamental link.
 \begin{itemize}
 \item Definition of principles of Open Science/Research Transparency (Miguel et al 2014)
 \item Development of guidelines to operationalize principles of Open Science (Nosek et al 2015)
-\item Journals and funders: Registries (AEA), Journals (Science + 5k other journals), Funders (NIH, NSF and multiple donors)
+\item Journals and funders: Journals (Science + 5k other journals), Registries (AEA), Funders (NIH, NSF and multiple donors)
 \end{itemize}
 
 \end{frame} 
@@ -308,7 +310,6 @@ Policy Analysis is fundamental link.
 \begin{itemize}
 \item Incredible Certitudes  (Manski, 2013) 
 \item Report wars (Wesselink et al, 2013) 
-\item  Researcher degrees of freedom (Simmons, Nelson, and Simonsohn 2011,Wicherts et al., 2016).
 \end{itemize}
 \end{frame} 
 
@@ -446,6 +447,7 @@ Main consequences of policy analysis that lacks openness:
 
 \section[Open PA]{Proposed Principles for Open Policy Analysis}
 
+
 \begin{frame}{Open Policy Analysis}
 \begin{table}[ht]
 \centering
@@ -488,14 +490,6 @@ Solutions &  \textit{Open Science }&    \textit{Open Policy Analysis } \\
 \end{table}%
 \end{frame}
 
-\begin{frame}{Principles for Open Policy Analysis}
-Proposed principles:
-\begin{enumerate}
-\item Computational Reproducibility
-\item Analytic Transparency
-\item Output Transparency 
-\end{enumerate}
-\end{frame} 
 
 \begin{frame}[shrink=25, label = pa_comp]{The Process of Policy Analysis}
 
@@ -585,6 +579,16 @@ Proposed principles:
 
 \end{frame}
 
+\begin{frame}{Principles for Open Policy Analysis}
+Proposed principles:
+\begin{enumerate}
+\item Computational Reproducibility
+\item Analytic Transparency
+\item Output Transparency 
+\end{enumerate}
+\end{frame} 
+
+
 \begin{frame}{Principle 1}
 \begin{columns}
 \begin{column}{0.3\textwidth}
@@ -641,20 +645,9 @@ Proposed principles:
 \end{frame}
 
 
-\section{Challenges And Suggestions}
+\section{Suggestions}
 
-\begin{frame}{Challenges And Suggestions}
-\textbf{Challenges:}
-\begin{itemize}
-\item Policymakers may not want analyses to be open.
-\item Analysts may wish to keep policy analyses ``closed''. 
-\item For policy analysis contracted out to third parties: Opening methods will prevent them form reselling extensions.
-\item  Initially reproducibility represents an additional layer of work.
-\item Limits to sharing sensitivity of information, requires resources for adequate de-identification if open data is expected
-\end{itemize}
-\end{frame} 
-
-\begin{frame}{Challenges And Suggestions}
+\begin{frame}{Suggestions}
 \textbf{Suggestions:}
 \begin{enumerate}
 \item \textbf{Policy Analysts: Just Post It}. \\
@@ -669,7 +662,7 @@ Examples: Require contracted policy analysis to be fully open. Support training 
 \end{frame} 
 
 
-\section[Conclusion]{Conclusion And Next Steps}
+\section[Conclusion]{Conclusion}
 
 \begin{frame}{Summing Up: Where We Are}
    \begin{tikzpicture}[remember picture,overlay]
@@ -696,13 +689,13 @@ Examples: Require contracted policy analysis to be fully open. Support training 
 %\end{frame}
 
 
-\begin{frame}{Next Steps} 
-\begin{itemize}
-\item Journal Science was key for research. Need high profile producer of policy analysis to buy in. 
-\item Develop community-endorsed guidelines for OPA (similar to TOP Guidelines for Open Science)
-\item Carry out case studies with policy agencies to fine tune guidelines, and build a collection of examples (Hoces de la Guardia 2017). 
-\end{itemize}
-\end{frame} 
+%\begin{frame}{Next Steps} 
+%\begin{itemize}
+%\item Journal Science was key for research. Need high profile producer of policy analysis to buy in. 
+%\item Develop community-endorsed guidelines for OPA (similar to TOP Guidelines for Open Science)
+%\item Carry out case studies with policy agencies to fine tune guidelines, and build a collection of examples (Hoces de la Guardia 2017). 
+%\end{itemize}
+%\end{frame} 
 
 
 \part{Paper 2}
@@ -774,46 +767,26 @@ Problems & Reproducibility  &  Credibility \\
 				 &  Crisis & Crisis \\
 \hline
 Solutions &  \textit{Open Science}&    \textit{Open Policy Analysis} \\
- & Principles, Guidelines,  &   Principles, \textbf{Guidelines,}\\
- & Applications &   \textbf{Applications}\\
+ & Principles, Guidelines,  &   Principles, Guidelines,\\
+ & Applications &   Applications\\
 
 \hline
 \end{tabular}
 \end{table}%
 \end{frame}
-
-\begin{frame}{Motivation 2: An Academic Concern in 2013}
-\begin{exampleblock}{}
-  {\large ``I worry that someday sooner or later the existing social contract to take CBO scores at face value will break down. Conventional Certitudes that lack foundation cannot last indefinitely.''
-}
-  \vskip3mm
-  \raggedleft{\small--- Charles Manski} \footnotesize{ \linebreak  Public Policy in an Uncertain World, 2013} 
-  	  
-\end{exampleblock}
-\end{frame}
-
-\begin{frame}{Motivation 2: A Reality In 2017}
-   \begin{tikzpicture}[remember picture,overlay]
-       \node[at=(current page.center), xshift = 2em, yshift = -1.4em] {
-         \includegraphics[width=.87\paperwidth]{../Images/CBO_under_attack.PNG}
-       };
-   \end{tikzpicture}
-\end{frame}
-
-  
  
- \section{Approach}
-\begin{frame}{Approach}
-\begin{itemize}
-\item Identify a case study
-\item Define guidelines
-\item Demonstrate how to achieve highest standards of Open Policy Analysis (OPA)
-\item Use sensitivity analysis to explore biggest policy unknowns 
-\begin{itemize}
-\item  Surprisingly, academic debate around one specific parameter seems less relevant from policy perspective
-\end{itemize}
-\end{itemize}
-\end{frame} 
+% \section{Approach}
+%\begin{frame}{Approach}
+%\begin{itemize}
+%item Identify a case study
+%\item Define guidelines
+%\item Demonstrate how to achieve highest standards of Open Policy Analysis (OPA)
+%\item Use sensitivity analysis to explore biggest policy unknowns 
+%\begin{itemize}
+%\item  Surprisingly, academic debate around one specific parameter seems less relevant from policy perspective
+%\end{itemize}
+%\end{itemize}
+%\end{frame} 
 
 \section[Case Study]{Description of Case Study}
 
@@ -838,35 +811,15 @@ Congressional Budget Office (2014)
 \end{frame}
 
 
-
-\begin{frame}[label = reas_cs]{Reasons for Selecting the Case Study}
-\vspace*{1em}
-\begin{itemize}
-\item \textit{Scalable}: 
-\begin{itemize}
-\item CBO's reputation: among the most transparent and rigorous policy analysis offices. Lessons from OPA that apply to CBO should apply also to most agencies.
-\item Policy issue is widely known which facilitates parallels.
-\end{itemize}   
-\item \textit{Recurrent}:
-\begin{itemize}
-\item This policy analysis will be conducted again in the future.
-\item Case study can form the basis for future calculations.
-\end{itemize}  
-\end{itemize}
-
-\end{frame}
-
 \begin{frame}{Reasons for Selecting the Case Study}
-
-\begin{itemize}
-\item \textit{Feasible}: 
-\begin{itemize}
-\item Available data, good description of the analysis 
-\item Only one policy lever to analyze.
-\end{itemize}  
-\item \textit{Relevant}: 
-\end{itemize}
-
+    \begin{multicols}{2}
+    \begin{itemize}
+        \item Scalable
+        \item Recurrent
+        \item Feasible
+        \item Relevant:
+    \end{itemize}
+    \end{multicols}
 \begin{figure}[h!]
 \centering
 \vspace*{-1em}
@@ -876,115 +829,9 @@ Congressional Budget Office (2014)
 \caption{Google Search Intensity of ``Minimum Wage''}
 \label{mw_gtrend}
 \end{figure}	
-
 \end{frame}
 
 \section{Guidelines}
-
-%6mins
-\begin{frame}[shrink=25, label = pa_comp]{Guidelines Goal: Reproducibility \&  Transparency}
-
-\tikzstyle{estimate} = [diamond, draw, node distance= 7em,text width = 5em, minimum height=5em, minimum width=5em, align = center]
-\tikzstyle{line} = [draw, -stealth]
-\tikzstyle{line_enph} = [draw, red, ultra thick]
-\tikzstyle{inp} = [draw, rectangle, text centered, minimum height=3em, text width=2em, node distance= 2em]
-\tikzstyle{source} = [draw, rectangle, text centered, minimum height=8em, text width=5em, node distance= 10em]
-\tikzstyle{model} = [draw, rectangle, text centered, minimum height=8em, text width=15em, node distance= 10em]
-%\tikzstyle{outp} = [draw, ellipse, text centered, minimum height=2mm, text width=2em, node distance= 10em]
-%\tikzstyle{block} = [draw, rectangle,  text width=8em, text centered, minimum height=55mm, node distance= 5em]
-
-
-%\begin{adjustbox}{max totalsize={1\textwidth}{.8\textheight},center}
-
-\begin{figure}[h!]\centering 
-\hspace*{-2.5em}
-\begin{tikzpicture}[thick,scale=0.6, every node/.style={scale=0.6}]
-\setbeamercovered{invisible}
-
-%%%%%Nodes: Sources%%%%%%%
-\onslide<1-5>\node [source](D_1){$Data$};
-\onslide<1>\node [source, below = 1em of D_1](Lit){$Research$};
-\onslide<1-5>\node [source, below = 1em of Lit](OR){\textit{Guess work}};
-
-
-\draw[decoration={brace,mirror}, decorate] (-1.2,-10) -- node[below=6pt] {$Sources$}(1.1,-10);
-
-\draw[decoration={brace,mirror}, decorate] (4.8,-11.3) -- node[below=6pt] {$Inputs$}(6.2,-11.3);
-
-
-%node[below = 1em ](OR) -- node[below = 6em]{asd}(OR)
-
-
-%\onslide<2-5>\node [source, color=red](Lit){$Research$};
-\onslide<2-5>\node [source, below = 1em of D_1, color=red](Lit){$Research$};
-
-%%%%%Nodes: Inputs%%%%%%%
-\onslide<1-5>\node [inp, above right = 1em and 6em of  D_1 ](I_1){$I_1$};
-\onslide<1-5>\node [inp, below = 1em of I_1](I_2){$I_2$};
-\onslide<1-2>\node [inp, below = 8em of I_2](I_j){$I_j$};
-\onslide<1-5>\node [inp, below right = 1em and 6em of OR ](I_last){$I_J$};
-
-\onslide<3->\node [inp,  color=red, below = 8em of I_2](I_j){$I_j$};
-
-
-\onslide<1-5>\path (I_2) -- node[auto=false, rotate=90, anchor=north, outer sep=-0.5em]{\ldots} (I_j);
-\onslide<1-5>\path (I_j) -- node[auto=false, rotate=90, anchor=north, outer sep=-0.5em]{\ldots} (I_last);
-
-%%%%%Paths connecting Sources with Inputs%%%%%%%
-\onslide<1-5>\draw [line](D_1.east) -- (I_1.west);
-\onslide<1-5>\draw [line](D_1.east) -- (I_2.west);
-\onslide<1-2>\draw [line, opacity=1, anchor=center](Lit.east) -- (I_j.west);
-\onslide<1-5>\draw [line, opacity=1, anchor=center](OR.east) -- (I_last.west);
-
-\onslide<3->\draw [line,  color=red](Lit.east) -- (I_j.west);
-
-
-\onslide<1-5>\draw [line, opacity=.3][xshift=1em](D_1.east) -- ([yshift=-8 em]I_1.west);
-\onslide<1-5>\draw [line, opacity=.3][xshift=1em](D_1.east) -- ([yshift=-10 em]I_1.west);
-
-\onslide<1-5>\draw [line, opacity=.3][xshift=1em](Lit.east) -- ([yshift=7 em]I_j.west);
-\onslide<1-5>\draw [line, opacity=.3][xshift=1em](Lit.east) -- ([yshift=-5 em]I_j.west);
-
-\onslide<1-5>\draw [line, opacity=.3][xshift=1em](OR.east) -- ([yshift=3 em]I_last.west);
-\onslide<1-5>\draw [line, opacity=.3][xshift=1em](OR.east) -- ([yshift=5 em]I_last.west);
-
-
-%%%%%Node and paths for model%%%%%%%
-\onslide<1-3>\node [model, below right = 2em and 10em of D_1](model){$Model$};
-\onslide<1-5>\draw [line](I_1) -| (model);
-\onslide<1-5>\draw [line](I_2) -| (model);
-\onslide<1-3>\draw [line](I_j) |- (model);
-\onslide<1-5>\draw [line](I_last) -| (model);
-
-\onslide<4->\node [model,  color=red, below right = 2em and 10em of D_1](model){$Model$};
-\onslide<4->\draw [line,  color=red](I_j) |- (model);
-
-
-%%%%%Node and paths for policy estimates%%%%%%%
-\onslide<1-4>\node [estimate, right = 5em of model](PE_2){$Policy$ $Estimate_2$};
-\onslide<1-4>\node [estimate, above = 5em of PE_2](PE_1){$Policy$ $Estimate_1$};
-\onslide<1-4>\node [estimate, below = 5em of PE_2](PE_3){$Policy$ $Estimate_3$};
-
-
-\onslide<1-4>\draw [line] (model.east) -- (PE_1.south west);
-\onslide<1-4>\draw [line] (model.east) -- (PE_2.west);
-\onslide<1-4>\draw [line] (model.east) -- (PE_3.north west);
-
-
-\onslide<5->\node [estimate,  color=red, right = 5em of model](PE_2){$Policy$ $Estimate_2$};
-\onslide<5->\node [estimate,  color=red, above = 5em of PE_2](PE_1){$Policy$ $Estimate_1$};
-\onslide<5->\node [estimate,  color=red, below = 5em of PE_2](PE_3){$Policy$ $Estimate_3$};
-
-
-\onslide<5->\draw [line,  color=red] (model.east) -- (PE_1.south west);
-\onslide<5->\draw [line,  color=red] (model.east) -- (PE_2.west);
-\onslide<5->\draw [line,  color=red] (model.east) -- (PE_3.north west);
-\end{tikzpicture}
-\end{figure}
-
-\end{frame}
-
-
 
 
 
@@ -1160,6 +1007,7 @@ Congressional Budget Office (2014)
 \end{figure}
 \hyperlink{full_model}{\beamerbutton{}}
 \hyperlink{equations}{\beamerbutton{}}
+\hyperlink{before}{\beamerbutton{}}
 \end{frame}
 
 \begin{frame}{All in One Output 1/3}
@@ -1171,7 +1019,7 @@ Congressional Budget Office (2014)
 \end{figure}	
 \end{frame}
 
-\begin{frame}{Benefit 3: All in One Output 2/3}
+\begin{frame}{All in One Output 2/3}
 \begin{figure}[h!]
 \centering
 \hspace*{-3em}
@@ -1180,7 +1028,7 @@ Congressional Budget Office (2014)
 \end{figure}	
 \end{frame}
 
-\begin{frame}{Benefit 3: All in One Output 3/3}
+\begin{frame}{All in One Output 3/3}
 \begin{figure}[h!]
 \centering
 \hspace*{-3em}
@@ -1306,13 +1154,13 @@ Let's assume this becomes the new status quo.
 \end{itemize}
 \end{frame}
 
-\begin{frame}{We Want to Work With You}
+\begin{frame}{Possibilities for Collaboration}
 \begin{itemize}
 \item CBO is a leader in policy analysis. Leading OPA would shield its credibility and encourage others (ala Journal Science for Empirical Research). 
 \item{What can BITSS offer: }
 \begin{itemize}
 \item Technical support next case study (funded through August 2018).
-\item Training research transparency tools.
+\item Training on research transparency methods.
 \end{itemize}
 \item Join a group of experts to develop and publish guidelines (APPAM 2018 convening).
 \end{itemize}
@@ -1347,7 +1195,7 @@ Let's assume this becomes the new status quo.
 \bigskip
 {\small
 Pre-prints:\\
-{\blue \href{  [PP URL HERE] }{Why OPA} } \\
+{\blue \href{https://osf.io/preprints/bitss/jnyqh}{Why OPA} } \\
 {\blue \href{https://osf.io/preprints/bitss/ba7tr/}{OPA Case Study}  } \\
 \medskip
 Slides at \\
@@ -1377,7 +1225,7 @@ Back-up slides
 
 
 
-\begin{frame}[label=low_tr_ex]{Easier Methodological Appraisal. Example: dis-employment effects \textbf{Before}}
+\begin{frame}[label=before]{Easier Methodological Appraisal. Example: dis-employment effects \textbf{Before}}
 
 
 Steps taken to verify the analysis \&  employment variation $(\widehat{\Delta E}\times 1000)$ at each line\footnotemark 
@@ -1396,7 +1244,7 @@ Steps taken to verify the analysis \&  employment variation $(\widehat{\Delta E}
 \item The adjustment factors $\frac{1}{p^{g}_{w\leq MW}} \times \frac{\%\Delta MW}{\overline{\%\Delta w^{g}}} = F^{g}_{adj}$ are not computed from the data (3.2 teens, 19.5 adults). Instead: $F^{teen}_{adj} = F^{adult}_{adj}= 4.5$ (page 28) ${\red\widehat{\Delta E} \approx 500}$   
 \end{enumerate}
 \textit{Steps 2-4 took several days of work! }
-\small{\hyperlink{fr_pa}{\beamerbutton{}}}
+\small{\hyperlink{map_cbo}{\beamerbutton{}}}
 \end{frame}
 
 \begin{frame}[label=equations]{{\small\hyperlink{map_cbo}{\beamerbutton{}}}Equations from Model in DD}
@@ -1631,6 +1479,37 @@ $\rho>0$ represents positive valuation of progressive redistribution. $\rho<0$ r
 \label{toy_ex}
 \end{figure}	
 \end{frame}
+
+
+\begin{frame}{Motivation 2: An Academic Concern in 2013}
+\begin{exampleblock}{}
+  {\large ``I worry that someday sooner or later the existing social contract to take CBO scores at face value will break down. Conventional Certitudes that lack foundation cannot last indefinitely.''
+}
+  \vskip3mm
+  \raggedleft{\small--- Charles Manski} \footnotesize{ \linebreak  Public Policy in an Uncertain World, 2013} 
+  	  
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}{Motivation 2: A Reality In 2017}
+   \begin{tikzpicture}[remember picture,overlay]
+       \node[at=(current page.center), xshift = 2em, yshift = -1.4em] {
+         \includegraphics[width=.87\paperwidth]{../Images/CBO_under_attack.PNG}
+       };
+   \end{tikzpicture}
+\end{frame}
+
+  
+\begin{frame}{Challenges And Suggestions}
+\textbf{Challenges:}
+\begin{itemize}
+\item Policymakers may not want analyses to be open.
+\item Analysts may wish to keep policy analyses ``closed''. 
+\item For policy analysis contracted out to third parties: Opening methods will prevent them form reselling extensions.
+\item  Initially reproducibility represents an additional layer of work.
+\item Limits to sharing sensitivity of information, requires resources for adequate de-identification if open data is expected
+\end{itemize}
+\end{frame} 
 
 \backupend
 
